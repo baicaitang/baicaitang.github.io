@@ -1392,8 +1392,9 @@ header label {
   color: #8959a8;
 }
 #vcomments {
-  width: 780px;
   margin: 0 auto;
+  width: 100%;
+  max-width: 780px;
 }
 #vcomments #veditor {
   min-height: 80px;
@@ -1407,11 +1408,10 @@ header label {
   height: 30px;
   line-height: 30px;
   text-align: center;
-  color: #1e92fb;
-  border: 1px solid #1e92fb;
-  border-radius: 5px;
+  color: #746d6d;
+  border: 1px solid #ededed;
+  border-radius: 0.3em;
 }
-#vcomments .vat #vcomments .vat::hover {
-  background-color: #1e92fb;
-  color: #fff;
+.post-wrap {
+  overflow: hidden;
 }
