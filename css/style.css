@@ -515,7 +515,7 @@ header label {
 }
 .copyright {
   font-size: 14px;
-  height: 28px;
+  height: 60px;
 }
 .pagination {
   display: flex;
@@ -1414,4 +1414,11 @@ header label {
 }
 .post-wrap {
   overflow: hidden;
+}
+#vcomments .vwrap {
+  margin-top: 20px;
+  border: 1px solid #dcdcdc;
+}
+#vcomments .vcopy {
+  display: none;
 }

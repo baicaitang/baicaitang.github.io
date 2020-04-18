@@ -22,3 +22,10 @@
 .post-wrap {
   overflow: hidden;
 }
+#vcomments .vwrap {
+  margin-top: 20px;
+  border: 1px solid #dcdcdc;
+}
+#vcomments .vcopy {
+  display: none;
+}
