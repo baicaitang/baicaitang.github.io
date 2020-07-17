@@ -19,7 +19,7 @@
 
 
 
-<title>hexo添加404页面 | 沛</title>
+<title>Categories | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -125,6 +125,8 @@
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
+                    <a class="menu-item" href="/category">Categories</a>
+                
                     <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
@@ -147,6 +149,8 @@
             <div class="menu" id="mobile-menu">
                 
                     <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
                 
                     <a class="menu-item" href="/tag">Tags</a>
                 
@@ -171,189 +175,97 @@
     }
 </script>
         <div class="main">
-            <div class="container">
-    
-    
-    <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">hexo添加404页面</h1>
             
-            <div class="post-meta">
-                
-                作者: <a itemprop="author" rel="author" href="/">baicaitang</a>
-                
 
-                
-                <span class="post-time">
-                    日期: <a
-                        href="#">2020-06-06&nbsp;&nbsp;0:56:18</a>
-                </span>
-                
-                
+
+
+<div class="container">
+    <div class="post-wrap categories">
+        <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
+        <div class="categories-card">
+            
+            
+            <div class="card-item">
+                <div class="categories">
+                    <a href="/categories/hexo/">
+                        <h3>
+                            <i class="iconfont icon-category" style="padding-right:3px"></i>
+                            hexo
+                        </h3>
+                    </a>
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/06/06/hexo%E6%B7%BB%E5%8A%A0404%E9%A1%B5%E9%9D%A2/">hexo添加404页面</a>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/04/05/%E6%B5%8B%E8%AF%95/">测试</a>
+                    </article>
+                    
+                    
+                    
+                </div>
             </div>
             
-        </header>
-
-        <div class="post-content">
-            <h3 id="hexo添加404页面"><a href="#hexo添加404页面" class="headerlink" title="hexo添加404页面"></a>hexo添加404页面</h3><ul>
-<li><p>之前刚开始写博客的时候弄了好久都不知道怎么做个404页面出来，今天又突然想起想要做个404页面，翻了很久资料终于找到怎么弄了</p>
-</li>
-<li><p>参考博客：<code>https://hehung.top/2019/89541f63.html</code></p>
-</li>
-</ul>
-<h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><img src="/2020/06/06/ckb2hl0j10001c4vzh6xe86qm/404.jpg" alt="img" style="zoom:50%;">
-
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li><p>新建一个404.md</p>
-<ul>
-<li><p>在hexo的source文件夹下创建一个404.md的文件，填入一下内容：</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: 404</span><br><span class="line">date: 2020-6-6 11：11:11</span><br><span class="line">type: "404"</span><br><span class="line">layout: "404"</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>创建一个404.ejs文件</p>
-<ul>
-<li>在此文件下写404页面相关内容</li>
-<li>在相应的主题文件夹下的layout文件夹下创建</li>
-<li>我的404页面是在codepen上下载的，codepen是一个在线前端开发工具，可以随时体验各位前端开发人员的代码，平时也可以拿来练手做小demo</li>
-<li>下载下来后就可以把你喜欢的页面和样式加到404.ejs文件里面了</li>
-</ul>
-</li>
-<li><p>注：本地不可以看到404页面，需运行到服务端才可看见</p>
-</li>
-</ul>
-
+            
+            <div class="card-item">
+                <div class="categories">
+                    <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                        <h3>
+                            <i class="iconfont icon-category" style="padding-right:3px"></i>
+                            日常
+                        </h3>
+                    </a>
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/07/02/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%B4%E4%BB%80%E4%B9%88%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%88%E6%83%B3%E5%86%99%E7%82%B9%E4%BB%80%E4%B9%88/">不知道说什么，但是又想写点什么</a>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/04/25/%E5%BC%80%E5%A7%8B%E4%BA%86/">开始了</a>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/06/05/%E6%90%AC%E5%AE%BF%E8%88%8D/">搬宿舍</a>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/04/18/%E7%BB%88%E4%BA%8E%E5%AE%8C%E6%88%90%E4%BA%86/">终于完成了</a>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="archive-item">
+                        <a class="archive-item-link" href="/2020/07/17/%E9%94%BB%E7%82%BC/">锻炼</a>
+                    </article>
+                    
+                    
+                    
+                </div>
+            </div>
+            
         </div>
 
-        
-        <section class="post-copyright">
-            
-            <p class="copyright-item">
-                <span>作者:</span>
-                <span>baicaitang</span>
-            </p>
-            
-            
-            <p class="copyright-item">
-                <span>链接:</span>
-                <span><a href="https://baicaitang.github.io/2020/06/06/ckb2hl0j10001c4vzh6xe86qm/">https://baicaitang.github.io/2020/06/06/ckb2hl0j10001c4vzh6xe86qm/</a></span>
-            </p>
-            
-            
-            <p class="copyright-item">
-                <span>版权:</span>
-                <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
-            </p>
-            
-            
-
-        </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>标签:</span>
-                <span class="tag">
-                    
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/"> <i class="iconfont icon-tags"></i> 笔记</a>
-                    
-                    
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">返回</a>
-                <span>· </span>
-                <a href="/">首页</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-            <a class="prev" rel="prev" href="/2020/07/02/ckc3k809k0000qwvze1pc415b/">不知道说什么，但是又想写点什么</a>
-            
-            
-            <a class="next" rel="next" href="/2020/06/05/ckb2hl0j60005c4vzahvh82om/">搬宿舍</a>
-            
-        </section>
-    </article>
-
-    <script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
-    <div id="vcomments"></div>
-    <script>
-        new Valine({
-            el: '#vcomments',
-            appId: '0KpgC9vMrdn50dpnTJtzqo7H-gzGzoHsz',
-            appKey: 'Whyf95T3XLV55f3OSRFYomQr',
-            notify: false,
-            verify: false,
-            avatar: 'mp',
-            placeholder: '(҂‾ ▵‾)︻デ═一聊天不...'
-        });
-    </script>
+    </div>
 </div>
+
         </div>
         <footer id="footer" class="footer">
 
