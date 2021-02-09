@@ -19,7 +19,7 @@
 
 
 
-<title>订制目标 | 沛</title>
+<title>超出最大调用堆栈大小 | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -182,7 +182,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">订制目标</h1>
+            <h1 class="post-title">超出最大调用堆栈大小</h1>
             
             <div class="post-meta">
                 
@@ -192,14 +192,14 @@
                 
                 <span class="post-time">
                     日期: <a
-                        href="#">2020-12-12&nbsp;&nbsp;14:06:46</a>
+                        href="#">2021-02-09&nbsp;&nbsp;21:34:14</a>
                 </span>
                 
                 
                 <span class="post-category">
                     Category:
                     
-                    <a href="/category/%E6%97%A5%E5%B8%B8/">日常</a>
+                    <a href="/category/%E6%8A%A5%E9%94%99/">报错</a>
                     
                 </span>
                 
@@ -209,18 +209,49 @@
 
         <div class="post-content">
             <blockquote>
-<p>目标</p>
+<p>Maximum call stack size exceeded：超出最大调用堆栈大小</p>
 </blockquote>
-<p>好久没更新博客了，又是偷懒的两个月，2020快结束了，前端也没完成之前的目标，实习也没</p>
-<p>找到，感觉今年什么都没做好。</p>
-<p>初拟明年的目标：</p>
+<p>前两天下载好插件后今天打开vue项目突然报这个错误，想不通，网上查了好几篇文章都解决不了我的问题</p>
+<img src="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/workplace\hexo\source\_posts\超出最大调用堆栈大小\Snipaste_2021-02-09_21-20-20.png" alt="Snipaste_2021-02-09_21-20-20" style="zoom:50%;">
+
+<p>查了写的代码forEach代码段注释了也还是这样，后来看了几个文件终于在main.js文件中找到问题</p>
+<img src="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/workplace\hexo\source\_posts\超出最大调用堆栈大小\Snipaste_2021-02-09_21-25-45.png" alt="Snipaste_2021-02-09_21-25-45" style="zoom: 67%;">
+
+<p>原因是我使用.use(axios)来引用axios了，在axios的包里找到了utils.js</p>
 <ul>
-<li><p>明年四月份一定考上ヾ(◍°∇°◍)ﾉﾞ</p>
+<li><img src="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/workplace\hexo\source\_posts\超出最大调用堆栈大小\Snipaste_2021-02-10_01-12-12.png" alt="Snipaste_2021-02-10_01-12-12" style="zoom: 67%;">
 </li>
-<li><p>完成一个自己做的项目</p>
+<li></li>
+</ul>
+<img src="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/workplace\hexo\source\_posts\超出最大调用堆栈大小\Snipaste_2021-02-10_00-15-19.png" alt="Snipaste_2021-02-10_00-15-19" style="zoom: 67%;">
+
+<ul>
+<li><p>axios是一个库，并不是vue中的第三方插件，使用时不能通过Vue.use()安装插件，需要在原型上进行绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> ‘axios’</span><br><span class="line">Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
-<li><p>学费准备</p>
+</ul>
+<ul>
+<li><p>使用插件可用vue-axios：<a href="https://www.npmjs.com/package/vue-axios" target="_blank" rel="noopener">https://www.npmjs.com/package/vue-axios</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="keyword">import</span> VueAxios <span class="keyword">from</span> <span class="string">'vue-axios'</span></span><br><span class="line">Vue.use(VueAxios, axios)</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
+</ul>
+<ul>
+<li><p>关于超出最大调用堆栈大小，我在网上找到的解释：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a();&#125;)();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这是一小撮电话后的堆栈，如此，调用堆栈不断增长，直到达到极限：浏览器硬编码堆栈大小或内存耗尽。</p>
+</li>
+<li><p>为了修复它，请确保您的递归函数有一个能够满足.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// The following condition </span></span><br><span class="line">    <span class="comment">// is the base case.</span></span><br><span class="line">    <span class="keyword">if</span> ( ! x) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    a(--x);&#125;)(<span class="number">10</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
 
         </div>
@@ -236,7 +267,7 @@
             
             <p class="copyright-item">
                 <span>链接:</span>
-                <span><a href="https://baicaitang.github.io/2020/12/12/%E8%AE%A2%E5%88%B6%E7%9B%AE%E6%A0%87/">https://baicaitang.github.io/2020/12/12/%E8%AE%A2%E5%88%B6%E7%9B%AE%E6%A0%87/</a></span>
+                <span><a href="https://baicaitang.github.io/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/">https://baicaitang.github.io/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/</a></span>
             </p>
             
             
@@ -255,7 +286,7 @@
                 <span class="tag">
                     
                     
-                    <a href="/tag/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"> <i class="iconfont icon-tags"></i> 碎碎念</a>
+                    <a href="/tag/vue/"> <i class="iconfont icon-tags"></i> vue</a>
                     
                     
                 </span>
@@ -268,10 +299,8 @@
         </section>
         <section class="post-nav">
             
-            <a class="prev" rel="prev" href="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/">超出最大调用堆栈大小</a>
             
-            
-            <a class="next" rel="next" href="/2020/10/11/%E8%8D%92%E5%BA%9F%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88/">荒废了两个月</a>
+            <a class="next" rel="next" href="/2020/12/12/%E8%AE%A2%E5%88%B6%E7%9B%AE%E6%A0%87/">订制目标</a>
             
         </section>
     </article>
