@@ -319,7 +319,7 @@
 <ul>
 <li>params传参：URL参数是不可见的，刷新后参数会消失<ul>
 <li>不配置path，刷新后页面参数会消失</li>
-<li>配置path，刷新页面id会保留</li>
+<li>配置path，url参数可见，刷新页面id会保留</li>
 </ul>
 </li>
 </ul>
@@ -327,7 +327,6 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由配置</span></span><br><span class="line">&#123;</span><br><span class="line">    path: <span class="string">"/console:id"</span>, <span class="comment">//或  path: "/console/id"</span></span><br><span class="line">    name: <span class="string">"Console"</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">      <span class="keyword">import</span>(<span class="string">"../views/Console/index.vue"</span>)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
-<p>​        </p>
 <ul>
 <li>query传参：URL参数可见，刷新后不会消失</li>
 </ul>
