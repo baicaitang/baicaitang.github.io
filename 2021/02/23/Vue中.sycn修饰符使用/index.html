@@ -19,7 +19,7 @@
 
 
 
-<title>hexo添加404页面 | 沛</title>
+<title>Vue中.sycn修饰符使用 | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -244,7 +244,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">hexo添加404页面</h1>
+            <h1 class="post-title">Vue中.sycn修饰符使用</h1>
             
             <div class="post-meta">
                 
@@ -254,14 +254,14 @@
                 
                 <span class="post-time">
                     日期: <a
-                        href="#">2020-06-06&nbsp;&nbsp;0:56:18</a>
+                        href="#">2021-02-23&nbsp;&nbsp;21:15:04</a>
                 </span>
                 
                 
                 <span class="post-category">
                     Category:
                     
-                    <a href="/category/hexo/">hexo</a>
+                    <a href="/category/vue3/">vue3</a>
                     
                 </span>
                 
@@ -270,33 +270,18 @@
         </header>
 
         <div class="post-content">
-            <h3 id="hexo添加404页面"><a href="#hexo添加404页面" class="headerlink" title="hexo添加404页面"></a>hexo添加404页面</h3><ul>
-<li><p>之前刚开始写博客的时候弄了好久都不知道怎么做个404页面出来，今天又突然想起想要做个404页面，翻了很久资料终于找到怎么弄了</p>
-</li>
-<li><p>参考博客：<code>https://hehung.top/2019/89541f63.html</code></p>
-</li>
+            <h3 id="sync修饰符"><a href="#sync修饰符" class="headerlink" title=".sync修饰符"></a>.sync修饰符</h3><ul>
+<li>vue .sync 修饰符，里面说vue .sync 修饰符以前存在于vue1.0版本里，但是在在 2.0 中移除了 .sync 。但是在 2.0 发布之后的实际应用中，我们发现 .sync 还是有其适用之处，比如在开发可复用的组件库时。</li>
+<li>我们需要做的只是让子组件改变父组件状态的代码更容易被区分，从 2.3.0 起我们重新引入了 .sync 修饰符，但是这次它只是作为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器</li>
+<li>作用：当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定</li>
 </ul>
-<h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><img src="/2020/06/06/hexo%E6%B7%BB%E5%8A%A0404%E9%A1%B5%E9%9D%A2/404.jpg" alt="img" style="zoom:50%;">
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line"><span class="comment">//点击新增弹出对话框</span></span><br><span class="line">&lt;el-button type=<span class="string">"danger"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"add_btn"</span> @click=<span class="string">"alert_dialog"</span> &gt;新增&lt;<span class="regexp">/el-button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"> &lt;InfoDialog v-model:flag.sync="dialog_info"&gt;&lt;/</span>InfoDialog&gt;</span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line">&lt;!--</span><br><span class="line">&lt;InfoDialog v-model:flag=<span class="string">"dialog_info"</span> @update:flag=<span class="string">"val =&gt; dialog_info = val"</span>&gt;&lt;<span class="regexp">/InfoDialog&gt;</span></span><br><span class="line"><span class="regexp">--&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const dialog_info = ref(false);</span></span><br><span class="line"><span class="regexp">const alert_dialog = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      dialog_info.value = true;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li><p>新建一个404.md</p>
 <ul>
-<li><p>在hexo的source文件夹下创建一个404.md的文件，填入一下内容：</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: 404</span><br><span class="line">date: 2020-6-6 11：11:11</span><br><span class="line">type: "404"</span><br><span class="line">layout: "404"</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
+<li>当子组件需要更新 dialog_info 的值时，它需要触发一个更新事件</li>
 </ul>
-</li>
-<li><p>创建一个404.ejs文件</p>
-<ul>
-<li>在此文件下写404页面相关内容</li>
-<li>在相应的主题文件夹下的layout文件夹下创建</li>
-<li>我的404页面是在codepen上下载的，codepen是一个在线前端开发工具，可以随时体验各位前端开发人员的代码，平时也可以拿来练手做小demo</li>
-<li>下载下来后就可以把你喜欢的页面和样式加到404.ejs文件里面了</li>
-</ul>
-</li>
-<li><p>注：本地不可以看到404页面，需运行到服务端才可看见</p>
-</li>
-</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;el-dialog title=<span class="string">"hhh"</span> v-model=<span class="string">"dialog_info_flag"</span> @close=<span class="string">"close"</span>&gt;</span><br><span class="line">      hghgh</span><br><span class="line">    &lt;<span class="regexp">/el-dialog&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import &#123; ref, reactive, watch &#125; from "vue";</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  name: "Dialog",</span></span><br><span class="line"><span class="regexp">  props: &#123;</span></span><br><span class="line"><span class="regexp">    flag: &#123;</span></span><br><span class="line"><span class="regexp">      type: Boolean,</span></span><br><span class="line"><span class="regexp">      default: false,</span></span><br><span class="line"><span class="regexp">     &#125;,</span></span><br><span class="line"><span class="regexp">  	&#125;,</span></span><br><span class="line"><span class="regexp">  setup(props, &#123; emit &#125;) &#123;</span></span><br><span class="line"><span class="regexp">    const dialog_info_flag = ref(true);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 监听</span></span><br><span class="line"><span class="regexp">    watch(</span></span><br><span class="line"><span class="regexp">      () =&gt; props.flag,</span></span><br><span class="line"><span class="regexp">      () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        dialog_info_flag.value = props.flag;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    const close = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      dialog_info_flag.value = false;</span></span><br><span class="line"><span class="regexp">      emit("update:flag", false);</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return &#123;</span></span><br><span class="line"><span class="regexp">      dialog_info_flag,</span></span><br><span class="line"><span class="regexp">      close,</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line">&lt;style lang=<span class="string">"scss"</span> scoped&gt;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -311,7 +296,7 @@
             
             <p class="copyright-item">
                 <span>链接:</span>
-                <span><a href="https://baicaitang.github.io/2020/06/06/hexo%E6%B7%BB%E5%8A%A0404%E9%A1%B5%E9%9D%A2/">https://baicaitang.github.io/2020/06/06/hexo%E6%B7%BB%E5%8A%A0404%E9%A1%B5%E9%9D%A2/</a></span>
+                <span><a href="https://baicaitang.github.io/2021/02/23/Vue%E4%B8%AD.sycn%E4%BF%AE%E9%A5%B0%E7%AC%A6%E4%BD%BF%E7%94%A8/">https://baicaitang.github.io/2021/02/23/Vue%E4%B8%AD.sycn%E4%BF%AE%E9%A5%B0%E7%AC%A6%E4%BD%BF%E7%94%A8/</a></span>
             </p>
             
             
@@ -330,7 +315,7 @@
                 <span class="tag">
                     
                     
-                    <a href="/tag/%E7%AC%94%E8%AE%B0/"> <i class="iconfont icon-tags"></i> 笔记</a>
+                    <a href="/tag/vue/"> <i class="iconfont icon-tags"></i> vue</a>
                     
                     
                 </span>
@@ -343,10 +328,8 @@
         </section>
         <section class="post-nav">
             
-            <a class="prev" rel="prev" href="/2020/07/02/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%AF%B4%E4%BB%80%E4%B9%88%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%88%E6%83%B3%E5%86%99%E7%82%B9%E4%BB%80%E4%B9%88/">不知道说什么，但是又想写点什么</a>
             
-            
-            <a class="next" rel="next" href="/2020/06/05/%E6%90%AC%E5%AE%BF%E8%88%8D/">搬宿舍</a>
+            <a class="next" rel="next" href="/2021/02/16/%E5%89%8D%E7%AB%AF%E7%BA%BF%E4%B8%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">前端线上跨域问题</a>
             
         </section>
     </article>

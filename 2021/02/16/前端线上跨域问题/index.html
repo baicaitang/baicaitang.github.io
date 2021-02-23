@@ -254,7 +254,7 @@
                 
                 <span class="post-time">
                     日期: <a
-                        href="#">2021-02-13&nbsp;&nbsp;22:54:18</a>
+                        href="#">2021-02-16&nbsp;&nbsp;22:54:18</a>
                 </span>
                 
                 
@@ -300,10 +300,13 @@
 <li><p>也可以在conf文件夹的nginx.conf中修改要映射的文件夹</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///www/server/nginx/conf/nginx.conf</span></span><br><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;             <span class="comment">//监听的端口</span></span><br><span class="line">        server_name  localhost;              </span><br><span class="line"></span><br><span class="line">        location / &#123;              <span class="comment">// 表示 以'/'开头的请求怎样处理</span></span><br><span class="line">            root   /www/server/nginx/html;   <span class="comment">//指定root文件夹为 上面提到的html文件夹</span></span><br><span class="line">            index  index.html index.htm index.php;               <span class="comment">//返回index.html</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        location /devApi/ &#123;</span><br><span class="line">            add_header <span class="string">'Access-Control-Allow-Origin'</span> <span class="string">'*'</span>;</span><br><span class="line">            proxy_pass    http:<span class="comment">//www.web-jshtml.cn/productapi/token/;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///www/server/nginx/conf/nginx.conf</span></span><br><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;             <span class="comment">//监听的端口</span></span><br><span class="line">        server_name  localhost;              </span><br><span class="line"></span><br><span class="line">        location / &#123;              <span class="comment">// 表示 以'/'开头的请求怎样处理</span></span><br><span class="line">            root   /www/server/nginx/html;   <span class="comment">//指定root文件夹为 上面提到的html文件夹</span></span><br><span class="line">            index  index.html index.htm index.php;               <span class="comment">//返回index.html</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        location /devApi/ &#123;</span><br><span class="line">            <span class="comment">//add_header 'Access-Control-Allow-Origin' '*';</span></span><br><span class="line">            proxy_pass    http:<span class="comment">//www.web-jshtml.cn/productapi/token/;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    server</span><br><span class="line">    &#123;</span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line">        server_name wyz.baicaitang.top;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">          root  /www/server/nginx/html;</span><br><span class="line">          index index.html index.htm index.php;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        location /devApi/ &#123;</span><br><span class="line">            proxy_pass    http:<span class="comment">//www.web-jshtml.cn/productapi/token/;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        access_log  /www/wwwlogs/access.log;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<ul>
+<li>更改完需重载nginx：<code>nginx -s reload</code></li>
+</ul>
 
         </div>
 
@@ -318,7 +321,7 @@
             
             <p class="copyright-item">
                 <span>链接:</span>
-                <span><a href="https://baicaitang.github.io/2021/02/13/%E5%89%8D%E7%AB%AF%E7%BA%BF%E4%B8%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">https://baicaitang.github.io/2021/02/13/%E5%89%8D%E7%AB%AF%E7%BA%BF%E4%B8%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</a></span>
+                <span><a href="https://baicaitang.github.io/2021/02/16/%E5%89%8D%E7%AB%AF%E7%BA%BF%E4%B8%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">https://baicaitang.github.io/2021/02/16/%E5%89%8D%E7%AB%AF%E7%BA%BF%E4%B8%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</a></span>
             </p>
             
             
@@ -349,6 +352,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+            <a class="prev" rel="prev" href="/2021/02/23/Vue%E4%B8%AD.sycn%E4%BF%AE%E9%A5%B0%E7%AC%A6%E4%BD%BF%E7%94%A8/">Vue中.sycn修饰符使用</a>
             
             
             <a class="next" rel="next" href="/2021/02/12/vue3%E4%B8%AD%E4%BD%BF%E7%94%A8vue-router/">vue3中使用vue-router</a>
@@ -398,5 +403,5 @@
     <!-- 
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
      -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"dialog":null,"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"dialog":null,"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
