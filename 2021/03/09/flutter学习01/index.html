@@ -270,13 +270,11 @@
         </header>
 
         <div class="post-content">
-            <p>##flutter学习笔记</p>
-<ul>
+            <h2 id="flutter学习笔记"><a href="#flutter学习笔记" class="headerlink" title="flutter学习笔记"></a>flutter学习笔记</h2><ul>
 <li>Flutter是谷歌推出的开发移动UI框架，可以快速的在<strong>IOS</strong>和<strong>Android</strong>上构建高质量的原生用户界面。写一份代码，在Android 和iOS平台上都可以运行</li>
 <li><strong>Flutter</strong>采用的是<strong>Dart</strong>作为开发框架和widget的语言</li>
 </ul>
-<p>##1.安装</p>
-<ul>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><ul>
 <li><p>使用flutter需要用到git工具，android stadio工具，所以一起和flutter SDK下载了，下载也可以根据官网文档步骤来进行<a href="https://flutterchina.club/setup-windows/" target="_blank" rel="noopener">https://flutterchina.club/setup-windows/</a></p>
 </li>
 <li><p>flutter 在window上安装，下载地址：<a href="https://flutter.dev/docs/development/tools/sdk/releases#windows" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/sdk/releases#windows</a></p>
@@ -327,30 +325,36 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-38-42.png" alt="Snipaste_2021-03-08_15-38-42">)<img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-15-22.png" alt="Snipaste_2021-03-08_15-15-22"></p>
+<img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-38-42.png" alt="Snipaste_2021-03-08_15-38-42" style="zoom:50%;">
+
 <ul>
-<li>flutter new  application project 创建应用</li>
-<li>点击vscode底部打开手机虚拟机</li>
+<li><p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-15-22.png" alt="Snipaste_2021-03-08_15-15-22"></p>
+</li>
+<li><p>flutter new  application project 创建应用</p>
+</li>
+<li><p>点击vscode底部打开手机虚拟机</p>
+</li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-02-21.png" alt="Snipaste_2021-03-08_17-02-21"></p>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-06-38.png" alt="Snipaste_2021-03-08_17-06-38" style="zoom:50%;">
 
-<p>###新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余</p>
-<ul>
+<h2 id="新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余"><a href="#新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余" class="headerlink" title="新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余"></a>新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余</h2><ul>
 <li>Android无法正常<a href="https://dl.google.com/dl/android/maven2/com/的问题" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/的问题</a><ul>
 <li>由于网络的问题，Android Studio一直无法下载需要的gradre同时也无法同步成功。问题就出在这个网址一直无法被成功获取资源。只要带有<a href="https://dl.google.com/dl/android/maven2/com/这样的链接都无法下载" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/这样的链接都无法下载</a></li>
 <li>仓库不可访问导致，由于google() 这个仓库地址是： <a href="https://dl.google.com/dl/android/maven2/com/" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/</a> ，可能会出现无法访问的情况， 这时候只需要优先使用国内的阿里云仓库就可以了</li>
 </ul>
 </li>
 </ul>
-<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-56-43.png" alt="Snipaste_2021-03-08_17-56-43"></p>
+<img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-56-43.png" alt="Snipaste_2021-03-08_17-56-43" style="zoom:50%;">
+
 <ul>
 <li></li>
 <li><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-03-00.png" alt="Snipaste_2021-03-09_03-03-00"></li>
 <li>设置仓库，只要在文件目录的/android/build.gradle 文件中，将buildscript 的repositories 字段改成如下代码即可</li>
 <li>问题参考文章：<a href="https://www.cnblogs.com/huihuizhang/p/11884890.html" target="_blank" rel="noopener">https://www.cnblogs.com/huihuizhang/p/11884890.html</a></li>
 </ul>
-<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-12-51-1615230895176.png" alt="Snipaste_2021-03-09_03-12-51"></p>
+<img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-12-51-1615230895176.png" alt="Snipaste_2021-03-09_03-12-51" style="zoom:50%;">
+
 <ul>
 <li><p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-13-20-1615230906124.png" alt="Snipaste_2021-03-09_03-13-20"></p>
 </li>
@@ -369,8 +373,7 @@
 <ul>
 <li>vscode运行虚拟机成功样子（注：得先打开 虚拟机）</li>
 </ul>
-<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-01-14-1615231107621.png" alt="Snipaste_2021-03-09_03-01-14"></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>
+<img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-01-14-1615231107621.png" alt="Snipaste_2021-03-09_03-01-14" style="zoom:50%;">
         </div>
 
         
