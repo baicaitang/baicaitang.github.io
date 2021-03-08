@@ -271,12 +271,10 @@
 
         <div class="post-content">
             <h3 id="从vue2到vue3的改变"><a href="#从vue2到vue3的改变" class="headerlink" title="从vue2到vue3的改变"></a>从vue2到vue3的改变</h3><ul>
-<li><p>new Router 变成createRouter</p>
-</li>
-<li><p>Vue Router 不再是一个类，而是一组函数</p>
-</li>
-<li><p>vue2输入 <code>mode: history</code> 来从哈希模式切换到 <code>history</code> 模式，vue3使用 <code>history: createWebHistory()</code> 来实现这一点，但需要引入createWebHistory</p>
-</li>
+<li>new Router 变成createRouter</li>
+<li>Vue Router 不再是一个类，而是一组函数</li>
+<li>vue2输入 <code>mode: history</code> 来从哈希模式切换到 <code>history</code> 模式，vue3使用 <code>history: createWebHistory()</code> 来实现这一点，但需要引入createWebHistory</li>
+<li>动态路由：在Vue3中，摒弃了 addRoutes() 方法，只保留了 addRoute() 单个添加路由配置的方法</li>
 </ul>
 <blockquote>
 <p>vue2</p>
@@ -391,6 +389,7 @@
     </article>
 
     <script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
+
     <div id="vcomments"></div>
     <script>
         new Valine({
