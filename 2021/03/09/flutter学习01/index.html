@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
 <meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -71,6 +72,7 @@
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
     <div class="wrapper">
         <a href="https://github.com/baicaitang" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80"
@@ -248,18 +250,22 @@
             
             <div class="post-meta">
                 
+
+                <span class="emoji monkey" role="img" aria-label="monkey"></span>
                 作者: <a itemprop="author" rel="author" href="/">baicaitang</a>
                 
 
                 
+                <span class="emoji clock" role="img" aria-label="clock"></span>
                 <span class="post-time">
                     日期: <a
                         href="#">2021-03-09&nbsp;&nbsp;3:27:26</a>
                 </span>
                 
                 
+                <span class="emoji inbox" role="img" aria-label="inbox tray"></span>
                 <span class="post-category">
-                    Category:
+                    分类:
                     
                     <a href="/category/flutter/">flutter</a>
                     
@@ -270,83 +276,93 @@
         </header>
 
         <div class="post-content">
-            <h2 id="flutter学习笔记"><a href="#flutter学习笔记" class="headerlink" title="flutter学习笔记"></a>flutter学习笔记</h2><ul>
+            <h2 id="flutter学习笔记"><a class="header-anchor" href="#flutter学习笔记">¶</a>flutter学习笔记</h2>
+<ul>
 <li>Flutter是谷歌推出的开发移动UI框架，可以快速的在<strong>IOS</strong>和<strong>Android</strong>上构建高质量的原生用户界面。写一份代码，在Android 和iOS平台上都可以运行</li>
 <li><strong>Flutter</strong>采用的是<strong>Dart</strong>作为开发框架和widget的语言</li>
 </ul>
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><ul>
-<li><p>使用flutter需要用到git工具，android stadio工具，所以一起和flutter SDK下载了，下载也可以根据官网文档步骤来进行<a href="https://flutterchina.club/setup-windows/" target="_blank" rel="noopener">https://flutterchina.club/setup-windows/</a></p>
+<h2 id="1-安装"><a class="header-anchor" href="#1-安装">¶</a>1.安装</h2>
+<ul>
+<li>
+<p>使用flutter需要用到git工具，android stadio工具，所以一起和flutter SDK下载了，下载也可以根据官网文档步骤来进行https://flutterchina.club/setup-windows/</p>
 </li>
-<li><p>flutter 在window上安装，下载地址：<a href="https://flutter.dev/docs/development/tools/sdk/releases#windows" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/sdk/releases#windows</a></p>
+<li>
+<p>flutter 在window上安装，下载地址：<a href="https://flutter.dev/docs/development/tools/sdk/releases#windows" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/sdk/releases#windows</a></p>
 </li>
-<li><p>git 下载地址：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
+<li>
+<p>git 下载地址：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
 </li>
-<li><p>Android Studio 下载地址：<a href="http://www.android-studio.org/" target="_blank" rel="noopener">http://www.android-studio.org/</a></p>
+<li>
+<p>Android Studio 下载地址：<a href="http://www.android-studio.org/" target="_blank" rel="noopener">http://www.android-studio.org/</a></p>
 </li>
-<li><p>下载完成以上软件并安装（git,android stadio安装步骤省略）</p>
+<li>
+<p>下载完成以上软件并安装（git,android stadio安装步骤省略）</p>
 </li>
-<li><p>配置用户环境变量PATH，追加 <code>flutter\bin</code>的全路径，重启电脑</p>
+<li>
+<p>配置用户环境变量PATH，追加 <code>flutter\bin</code>的全路径，重启电脑</p>
 </li>
-<li><p>在Flutter安装目录的<code>flutter</code>文件下找到<code>flutter_console.bat</code>，双击运行并启动<strong>flutter命令行</strong>，接下来，你就可以在Flutter命令行运行flutter命令了</p>
+<li>
+<p>在Flutter安装目录的<code>flutter</code>文件下找到<code>flutter_console.bat</code>，双击运行并启动<strong>flutter命令行</strong>，接下来，你就可以在Flutter命令行运行flutter命令了</p>
 </li>
 </ul>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_00-44-22.png" alt="Snipaste_2021-03-08_00-44-22" style="zoom:50%;">
-
 <ul>
-<li>检查安装是否成功，可以任意目录下打开git bash，输入flutter –version</li>
+<li>检查安装是否成功，可以任意目录下打开git bash，输入flutter --version</li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_00-41-07.png" alt="Snipaste_2021-03-08_00-41-07"></p>
 <ul>
-<li><p>由于一些<code>flutter</code>命令需要联网获取数据，如果您是在国内访问，由于众所周知的原因，直接访问很可能不会成功。 上面的<code>PUB_HOSTED_URL</code>和<code>FLUTTER_STORAGE_BASE_URL</code>是google为国内开发者搭建的临时镜像。详情请参考 <a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China" target="_blank" rel="noopener">Using Flutter in China</a></p>
+<li>
+<p>由于一些<code>flutter</code>命令需要联网获取数据，如果您是在国内访问，由于众所周知的原因，直接访问很可能不会成功。 上面的<code>PUB_HOSTED_URL</code>和<code>FLUTTER_STORAGE_BASE_URL</code>是google为国内开发者搭建的临时镜像。详情请参考 <a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China" target="_blank" rel="noopener">Using Flutter in China</a></p>
 <p>我的配置：</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FLUTTER_STORAGE_BASE_URL : https:&#x2F;&#x2F;storage.flutter-io.cn</span><br><span class="line">PUB_HOSTED_URL : https:&#x2F;&#x2F;pub.flutter-io.cn</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>查看flutter版本命令：flutter channel，stable为稳定版，一般开发在dev下开发<ul>
+<li>查看flutter版本命令：flutter channel，stable为稳定版，一般开发在dev下开发
+<ul>
 <li>进入指定版本：flutter channel dev</li>
 </ul>
 </li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_00-52-27.png" alt="Snipaste_2021-03-08_00-52-27"></p>
 <ul>
-<li><p>配置android SDK环境</p>
+<li>
+<p>配置android SDK环境</p>
 <ul>
 <li>安装android SDK 代理问题更改hosts文件，hosts文件地址：C:\Windows\System32\drivers\etc</li>
-<li><a href="http://ping.chinaz.com/进入ping查找" target="_blank" rel="noopener">http://ping.chinaz.com/进入ping查找</a> dl.google.com 的距离自己所在地点最近的ip地址 </li>
+<li><a href="http://ping.chinaz.com/%E8%BF%9B%E5%85%A5ping%E6%9F%A5%E6%89%BE" target="_blank" rel="noopener">http://ping.chinaz.com/进入ping查找</a> <a href="http://dl.google.com" target="_blank" rel="noopener">dl.google.com</a> 的距离自己所在地点最近的ip地址</li>
 <li>在hosts文件添加 ：<code>找到的ip地址   dl.google.com</code></li>
 <li>环境变量添加SDK安装的目录：ANDROID_SDK_ROOT : D:\Android_SDK\</li>
 </ul>
 </li>
-<li><p>也可以使用vscode执行<code>flutter.run flutter doctor</code>命令</p>
+<li>
+<p>也可以使用vscode执行<code>flutter.run flutter doctor</code>命令</p>
 <ul>
 <li>下面显示no issuse found为没有问题</li>
 </ul>
 </li>
 </ul>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-38-42.png" alt="Snipaste_2021-03-08_15-38-42" style="zoom:50%;">
-
 <ul>
-<li><p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-15-22.png" alt="Snipaste_2021-03-08_15-15-22"></p>
-</li>
-<li><p>使用vdcode打开命令：flutter new  application project 创建应用</p>
-</li>
-<li><p>点击vscode底部打开手机虚拟机</p>
-</li>
+<li></li>
+</ul>
+<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_15-15-22.png" alt="Snipaste_2021-03-08_15-15-22"></p>
+<ul>
+<li>使用vdcode打开命令：flutter new  application project 创建应用</li>
+<li>点击vscode底部打开手机虚拟机</li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-02-21.png" alt="Snipaste_2021-03-08_17-02-21"></p>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-06-38.png" alt="Snipaste_2021-03-08_17-06-38" style="zoom:50%;">
-
-<h2 id="新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余"><a href="#新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余" class="headerlink" title="新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余"></a>新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余</h2><ul>
-<li>Android无法正常<a href="https://dl.google.com/dl/android/maven2/com/的问题" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/的问题</a><ul>
-<li>由于网络的问题，Android Studio一直无法下载需要的gradre同时也无法同步成功。问题就出在这个网址一直无法被成功获取资源。只要带有<a href="https://dl.google.com/dl/android/maven2/com/这样的链接都无法下载" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/这样的链接都无法下载</a></li>
+<h2 id="新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余"><a class="header-anchor" href="#新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余">¶</a>新手安装的时候也一定会有不少的问题，下面的报错也同时困扰了我两天有余</h2>
+<ul>
+<li>Android无法正常https://dl.google.com/dl/android/maven2/com/的问题
+<ul>
+<li>由于网络的问题，Android Studio一直无法下载需要的gradre同时也无法同步成功。问题就出在这个网址一直无法被成功获取资源。只要带有https://dl.google.com/dl/android/maven2/com/这样的链接都无法下载</li>
 <li>仓库不可访问导致，由于google() 这个仓库地址是： <a href="https://dl.google.com/dl/android/maven2/com/" target="_blank" rel="noopener">https://dl.google.com/dl/android/maven2/com/</a> ，可能会出现无法访问的情况， 这时候只需要优先使用国内的阿里云仓库就可以了</li>
 </ul>
 </li>
 </ul>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-08_17-56-43.png" alt="Snipaste_2021-03-08_17-56-43" style="zoom:50%;">
-
 <ul>
 <li>google() 在android文件夹下build.gradle文件中</li>
 <li><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-03-00.png" alt="Snipaste_2021-03-09_03-03-00"></li>
@@ -354,27 +370,29 @@
 <li>问题参考文章：<a href="https://www.cnblogs.com/huihuizhang/p/11884890.html" target="_blank" rel="noopener">https://www.cnblogs.com/huihuizhang/p/11884890.html</a></li>
 </ul>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-12-51-1615230895176.png" alt="Snipaste_2021-03-09_03-12-51" style="zoom:50%;">
-
 <ul>
-<li><p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-13-20-1615230906124.png" alt="Snipaste_2021-03-09_03-13-20"></p>
+<li>
+<p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-13-20-1615230906124.png" alt="Snipaste_2021-03-09_03-13-20"></p>
 </li>
-<li><p>设置了本地代理导致访问仓库时，走了本地代理而出现connetion refused 的情况，这种情况下只要在 /android/gradle.properties 文件中，添加或修改一下代码即可，如果配置了shadowsocks， 也可以自己配置host 和port</p>
+<li>
+<p>设置了本地代理导致访问仓库时，走了本地代理而出现connetion refused 的情况，这种情况下只要在 /android/gradle.properties 文件中，添加或修改一下代码即可，如果配置了shadowsocks， 也可以自己配置host 和port</p>
 </li>
-<li><p>( 字段都设置为空时，不会经过代理host 和port )</p>
+<li>
+<p>( 字段都设置为空时，不会经过代理host 和port )</p>
 </li>
-<li><p>android stadio同步</p>
+<li>
+<p>android stadio同步</p>
 </li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-21-19.png" alt="Snipaste_2021-03-09_03-21-19"></p>
 <ul>
-<li>下面代码修改在找问题时用的，不知有无有效，如果还无成功可以试试</li>
+<li>如果还无成功可以试试修改下面代码</li>
 </ul>
 <p><img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-07-13-1615231061787.png" alt="Snipaste_2021-03-09_03-07-13"></p>
 <ul>
 <li>vscode运行虚拟机成功样子（注：得先打开 虚拟机）</li>
 </ul>
 <img src="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/Snipaste_2021-03-09_03-01-14-1615231107621.png" alt="Snipaste_2021-03-09_03-01-14" style="zoom:50%;">
-
 
         </div>
 
@@ -446,11 +464,13 @@
         <footer id="footer" class="footer">
 
     <div class="copyright">
-        <!-- <span>© baicaitang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span> -->
-        <span> © 2020 baicaitang</span>
+        <span class="emoji earth" role="img" aria-label="earth rotating"></span>
+        <span> © 2020 baicaitang | 备案 · 粤ICP备2021021660号-1 </span>
+
+
     </div>
 
-    
+
     <!-- <span id="busuanzi_container_site_pv">
         <i class="iconfont icon-people"></i>
         本站总访问量<span id="busuanzi_value_site_pv"></span>次
@@ -461,14 +481,17 @@
         本站访客数<span id="busuanzi_value_site_uv"></span>人
     </span>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-    
+
 </footer>
     </div>
 
     
 
-    <!-- 
+    
+
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-     -->
+
+    
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"dialog":null,"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+
 </html>
