@@ -1,221 +1,476 @@
 .emoji {
-    font-size: 14px;
-    width: 0.4em;
-    margin: 0.3em 0.4em;
-    text-align: center;
+  font-size: 14px;
+  width: 0.4em;
+  margin: 0.3em 0.4em;
+  text-align: center;
 }
-
 .emoji::after {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-
 .clock::after {
-    content: '🕛';
-    animation-name: clock;
-    animation-duration: 5s;
+  content: '🕛';
+  animation-name: clock;
+  animation-duration: 5s;
 }
-
 .mailbox::after {
-    content: '📪';
-    animation-name: mailbox;
-    animation-duration: 2.5s;
+  content: '📪';
+  animation-name: mailbox;
+  animation-duration: 2.5s;
 }
-
 .camera::after {
-    content: '📷';
-    --emoji: '📸';
-    animation-name: twoFrames;
-    animation-duration: 1.2s;
+  content: '📷';
+  --emoji: '📸';
+  animation-name: twoFrames;
+  animation-duration: 1.2s;
 }
-
 .hourglass::after {
-    content: '⏳';
-    --emoji: '⌛️';
-    animation-name: twoFrames;
-    animation-duration: 1.2s;
+  content: '⏳';
+  --emoji: '⌛️';
+  animation-name: twoFrames;
+  animation-duration: 1.2s;
 }
-
 .earth::after {
-    content: '🌎';
-    --emoji-1: '🌍';
-    --emoji-2: '🌏';
-    animation-name: threeFrames;
-    animation-duration: 1.5s;
+  content: '🌎';
+  --emoji-1: '🌍';
+  --emoji-2: '🌏';
+  animation-name: threeFrames;
+  animation-duration: 1.5s;
 }
-
 .moon::after {
-    content: '🌕';
-    animation-name: moon;
-    animation-duration: 1s;
+  content: '🌕';
+  animation-name: moon;
+  animation-duration: 1s;
 }
-
 .bomb::after {
-    content: '💣';
-    --emoji: '💥';
-    animation-name: twoFrames;
-    animation-duration: 2s;
+  content: '💣';
+  --emoji: '💥';
+  animation-name: twoFrames;
+  animation-duration: 2s;
 }
-
 .monkey::after {
-    content: '🙈';
-    --emoji-1: '🙉';
-    --emoji-2: '🙊';
-    animation-name: threeFrames;
-    animation-duration: 2s;
+  content: '🙈';
+  --emoji-1: '🙉';
+  --emoji-2: '🙊';
+  animation-name: threeFrames;
+  animation-duration: 2s;
 }
-
 .hearts::after {
-    content: '💗';
-    animation-name: hearts;
-    animation-duration: 3s;
+  content: '💗';
+  animation-name: hearts;
+  animation-duration: 3s;
 }
-
 .wave::after {
-    content: '✋';
-    --emoji: '👋';
-    animation-name: twoFrames;
-    animation-duration: 1s;
+  content: '✋';
+  --emoji: '👋';
+  animation-name: twoFrames;
+  animation-duration: 1s;
 }
-
 .inbox::after {
-    content: '📥';
-    --emoji: '📤';
-    animation-name: twoFrames;
-    animation-duration: 1s;
+  content: '📥';
+  --emoji: '📤';
+  animation-name: twoFrames;
+  animation-duration: 1s;
 }
-
 .vomit::after {
-    content: '🤢';
-    --emoji: '🤮';
-    animation-name: twoFrames;
-    animation-duration: 1s;
+  content: '🤢';
+  --emoji: '🤮';
+  animation-name: twoFrames;
+  animation-duration: 1s;
 }
-
+@-moz-keyframes twoFrames {
+  50% {
+    content: var(--emoji);
+  }
+}
+@-webkit-keyframes twoFrames {
+  50% {
+    content: var(--emoji);
+  }
+}
+@-o-keyframes twoFrames {
+  50% {
+    content: var(--emoji);
+  }
+}
 @keyframes twoFrames {
-    50% {
-        content: var(--emoji);
-    }
+  50% {
+    content: var(--emoji);
+  }
 }
-
+@-moz-keyframes threeFrames {
+  33.333% {
+    content: var(--emoji-1);
+  }
+  66.666% {
+    content: var(--emoji-2);
+  }
+}
+@-webkit-keyframes threeFrames {
+  33.333% {
+    content: var(--emoji-1);
+  }
+  66.666% {
+    content: var(--emoji-2);
+  }
+}
+@-o-keyframes threeFrames {
+  33.333% {
+    content: var(--emoji-1);
+  }
+  66.666% {
+    content: var(--emoji-2);
+  }
+}
 @keyframes threeFrames {
-    33.333% {
-        content: var(--emoji-1);
-    }
-
-    66.666% {
-        content: var(--emoji-2);
-    }
+  33.333% {
+    content: var(--emoji-1);
+  }
+  66.666% {
+    content: var(--emoji-2);
+  }
 }
-
+@-moz-keyframes mailbox {
+  25% {
+    content: '📫';
+  }
+  50% {
+    content: '📬';
+  }
+  75% {
+    content: '📭';
+  }
+}
+@-webkit-keyframes mailbox {
+  25% {
+    content: '📫';
+  }
+  50% {
+    content: '📬';
+  }
+  75% {
+    content: '📭';
+  }
+}
+@-o-keyframes mailbox {
+  25% {
+    content: '📫';
+  }
+  50% {
+    content: '📬';
+  }
+  75% {
+    content: '📭';
+  }
+}
 @keyframes mailbox {
-    25% {
-        content: '📫';
-    }
-
-    50% {
-        content: '📬';
-    }
-
-    75% {
-        content: '📭';
-    }
+  25% {
+    content: '📫';
+  }
+  50% {
+    content: '📬';
+  }
+  75% {
+    content: '📭';
+  }
 }
-
+@-moz-keyframes hearts {
+  16.666% {
+    content: '🧡';
+  }
+  33.333% {
+    content: '💛';
+  }
+  50% {
+    content: '💚';
+  }
+  66.666% {
+    content: '💙';
+  }
+  83.333% {
+    content: '💜';
+  }
+}
+@-webkit-keyframes hearts {
+  16.666% {
+    content: '🧡';
+  }
+  33.333% {
+    content: '💛';
+  }
+  50% {
+    content: '💚';
+  }
+  66.666% {
+    content: '💙';
+  }
+  83.333% {
+    content: '💜';
+  }
+}
+@-o-keyframes hearts {
+  16.666% {
+    content: '🧡';
+  }
+  33.333% {
+    content: '💛';
+  }
+  50% {
+    content: '💚';
+  }
+  66.666% {
+    content: '💙';
+  }
+  83.333% {
+    content: '💜';
+  }
+}
 @keyframes hearts {
-    16.666% {
-        content: '🧡';
-    }
-
-    33.333% {
-        content: '💛';
-    }
-
-    50% {
-        content: '💚';
-    }
-
-    66.666% {
-        content: '💙';
-    }
-
-    83.333% {
-        content: '💜';
-    }
+  16.666% {
+    content: '🧡';
+  }
+  33.333% {
+    content: '💛';
+  }
+  50% {
+    content: '💚';
+  }
+  66.666% {
+    content: '💙';
+  }
+  83.333% {
+    content: '💜';
+  }
 }
-
+@-moz-keyframes moon {
+  12.5% {
+    content: '🌖';
+  }
+  25% {
+    content: '🌗';
+  }
+  37.5% {
+    content: '🌘 ';
+  }
+  50% {
+    content: '🌑';
+  }
+  62.5% {
+    content: '🌒';
+  }
+  75% {
+    content: '🌓';
+  }
+  87.5% {
+    content: '🌔';
+  }
+}
+@-webkit-keyframes moon {
+  12.5% {
+    content: '🌖';
+  }
+  25% {
+    content: '🌗';
+  }
+  37.5% {
+    content: '🌘 ';
+  }
+  50% {
+    content: '🌑';
+  }
+  62.5% {
+    content: '🌒';
+  }
+  75% {
+    content: '🌓';
+  }
+  87.5% {
+    content: '🌔';
+  }
+}
+@-o-keyframes moon {
+  12.5% {
+    content: '🌖';
+  }
+  25% {
+    content: '🌗';
+  }
+  37.5% {
+    content: '🌘 ';
+  }
+  50% {
+    content: '🌑';
+  }
+  62.5% {
+    content: '🌒';
+  }
+  75% {
+    content: '🌓';
+  }
+  87.5% {
+    content: '🌔';
+  }
+}
 @keyframes moon {
-    12.5% {
-        content: '🌖';
-    }
-
-    25% {
-        content: '🌗';
-    }
-
-    37.5% {
-        content: '🌘 ';
-    }
-
-    50% {
-        content: '🌑';
-    }
-
-    62.5% {
-        content: '🌒';
-    }
-
-    75% {
-        content: '🌓';
-    }
-
-    87.5% {
-        content: '🌔';
-    }
+  12.5% {
+    content: '🌖';
+  }
+  25% {
+    content: '🌗';
+  }
+  37.5% {
+    content: '🌘 ';
+  }
+  50% {
+    content: '🌑';
+  }
+  62.5% {
+    content: '🌒';
+  }
+  75% {
+    content: '🌓';
+  }
+  87.5% {
+    content: '🌔';
+  }
 }
-
+@-moz-keyframes clock {
+  8.333% {
+    content: '🕐';
+  }
+  16.666% {
+    content: '🕑';
+  }
+  25% {
+    content: '🕒';
+  }
+  33.333% {
+    content: '🕓';
+  }
+  41.666% {
+    content: '🕔';
+  }
+  50% {
+    content: '🕕';
+  }
+  58.333% {
+    content: '🕖';
+  }
+  66.666% {
+    content: '🕗';
+  }
+  75% {
+    content: '🕘';
+  }
+  83.333% {
+    content: '🕙';
+  }
+  91.666% {
+    content: '🕚';
+  }
+}
+@-webkit-keyframes clock {
+  8.333% {
+    content: '🕐';
+  }
+  16.666% {
+    content: '🕑';
+  }
+  25% {
+    content: '🕒';
+  }
+  33.333% {
+    content: '🕓';
+  }
+  41.666% {
+    content: '🕔';
+  }
+  50% {
+    content: '🕕';
+  }
+  58.333% {
+    content: '🕖';
+  }
+  66.666% {
+    content: '🕗';
+  }
+  75% {
+    content: '🕘';
+  }
+  83.333% {
+    content: '🕙';
+  }
+  91.666% {
+    content: '🕚';
+  }
+}
+@-o-keyframes clock {
+  8.333% {
+    content: '🕐';
+  }
+  16.666% {
+    content: '🕑';
+  }
+  25% {
+    content: '🕒';
+  }
+  33.333% {
+    content: '🕓';
+  }
+  41.666% {
+    content: '🕔';
+  }
+  50% {
+    content: '🕕';
+  }
+  58.333% {
+    content: '🕖';
+  }
+  66.666% {
+    content: '🕗';
+  }
+  75% {
+    content: '🕘';
+  }
+  83.333% {
+    content: '🕙';
+  }
+  91.666% {
+    content: '🕚';
+  }
+}
 @keyframes clock {
-    8.333% {
-        content: '🕐';
-    }
-
-    16.666% {
-        content: '🕑';
-    }
-
-    25% {
-        content: '🕒';
-    }
-
-    33.333% {
-        content: '🕓';
-    }
-
-    41.666% {
-        content: '🕔';
-    }
-
-    50% {
-        content: '🕕';
-    }
-
-    58.333% {
-        content: '🕖';
-    }
-
-    66.666% {
-        content: '🕗';
-    }
-
-    75% {
-        content: '🕘';
-    }
-
-    83.333% {
-        content: '🕙';
-    }
-
-    91.666% {
-        content: '🕚';
-    }
+  8.333% {
+    content: '🕐';
+  }
+  16.666% {
+    content: '🕑';
+  }
+  25% {
+    content: '🕒';
+  }
+  33.333% {
+    content: '🕓';
+  }
+  41.666% {
+    content: '🕔';
+  }
+  50% {
+    content: '🕕';
+  }
+  58.333% {
+    content: '🕖';
+  }
+  66.666% {
+    content: '🕗';
+  }
+  75% {
+    content: '🕘';
+  }
+  83.333% {
+    content: '🕙';
+  }
+  91.666% {
+    content: '🕚';
+  }
 }
