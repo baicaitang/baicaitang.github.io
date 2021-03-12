@@ -36,6 +36,7 @@
   --emoji-2: '🌏';
   animation-name: threeFrames;
   animation-duration: 1.5s;
+  animation-iteration-count: infinite;
 }
 .moon::after {
   content: '🌕';

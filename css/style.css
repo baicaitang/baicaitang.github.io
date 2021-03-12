@@ -1445,6 +1445,9 @@ header label {
 #vcomments .vcopy {
   display: none;
 }
+.links .icon-gitee {
+  font-size: 1.8em;
+}
 .emoji {
   font-size: 14px;
   width: 0.4em;
@@ -1483,6 +1486,7 @@ header label {
   --emoji-2: '🌏';
   animation-name: threeFrames;
   animation-duration: 1.5s;
+  animation-iteration-count: infinite;
 }
 .moon::after {
   content: '🌕';
