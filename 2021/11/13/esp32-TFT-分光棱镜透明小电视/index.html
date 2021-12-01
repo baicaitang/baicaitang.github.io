@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- progress -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+ <!--end -->
+
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="baicaitang">
+
+
+
+    <meta name="description" content="沛">
+
+
+
+<title>esp32+TFT+分光棱镜透明小电视 | 沛</title>
+
+<style>
+    .pace .pace-progress {
+        background: #68cbf0;
+        /*进度条颜色*/
+        height: 3px;
+    }
+
+    .pace .pace-progress-inner {
+        box-shadow: 0 0 10px #2d96bd, 0 0 5px #2d96bd;
+        /*阴影颜色*/
+    }
+
+    .pace .pace-activity {
+        border-top-color: #2d96bd;
+        /*上边框颜色*/
+        border-left-color: #2d96bd;
+        /*左边框颜色*/
+    }
+</style>
+
+
+
+    <link rel="icon" href="/mm.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div class="wrapper">
+        <a href="https://github.com/baicaitang" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80"
+        viewBox="0 0 250 250" style="fill:#666; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+        aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg></a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+
+    @keyframes octocat-wave {
+
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">baicaitang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">baicaitang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+    <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">esp32+TFT+分光棱镜透明小电视</h1>
+            
+            <div class="post-meta">
+                
+
+                <span class="emoji monkey" role="img" aria-label="monkey"></span>
+                作者: <a itemprop="author" rel="author" href="/">baicaitang</a>
+                
+
+                
+                <span class="emoji clock" role="img" aria-label="clock"></span>
+                <span class="post-time">
+                    日期: <a
+                        href="#">2021-11-13&nbsp;&nbsp;23:27:30</a>
+                </span>
+                
+                
+                <span class="emoji inbox" role="img" aria-label="inbox tray"></span>
+                <span class="post-category">
+                    分类:
+                    
+                    <a href="/category/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a>
+                    
+                </span>
+                
+            </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="esp32-TFT-分光棱镜透明小电视">esp32+TFT+分光棱镜透明小电视</h3>
+<p>因为无意间看到稚晖君的HoloCubic透明小电视就喜欢上了这个好看又好玩的项目</p>
+<ul>
+<li>b站地址：<a href="https://www.bilibili.com/video/BV1VA411p7MD?spm_id_from=333.999.0.0" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1VA411p7MD?spm_id_from=333.999.0.0</a></li>
+<li>开源链接：<a href="https://github.com/peng-zhihui/HoloCubic" target="_blank" rel="noopener">https://github.com/peng-zhihui/HoloCubic</a></li>
+</ul>
+<p>因为没有学过任何电子电路的知识，所以不能和稚晖君一样做出同样的透明小电视，但是喜欢搜索各种技术的我b在站上找到了另一位技术大神的教程，自己搭建了一个</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1C54y1E72e?from=search&amp;seid=6464350853872050388&amp;spm_id_from=333.337.0.0" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1C54y1E72e?from=search&amp;seid=6464350853872050388&amp;spm_id_from=333.337.0.0</a></li>
+</ul>
+<blockquote>
+<p>我的材料选用了 esp32（乐鑫ESP-WROOM-32）  +  高清SPI TFT彩屏（8引脚） +  分光棱镜 （半透半反1:1），下面是记录实现透明小电视时踩过的坑</p>
+</blockquote>
+<h3 id="1-esp32硬件连接">1.esp32硬件连接</h3>
+<ul>
+<li>买了开发板记得从商家那里拿到开发板的原理图等其他资料，不然不知道如何连接引脚</li>
+</ul>
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/开发板.jpg" alt="开发板" style="zoom: 50%;">
+<ul>
+<li>TFT的引脚有如下几个：</li>
+</ul>
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/tft.png" alt="tft" style="zoom: 50%;">
+<ul>
+<li>BLK可以不接线，GND直接连接开发板上标志GND的引脚，VCC连接开发板上标志3v3字样的引脚（3.3v输出口），剩下的接口对应esp32的引脚按照教程连接</li>
+</ul>
+<p><img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/Snipaste_2021-11-13_14-58-24.jpg" alt="Snipaste_2021-11-13_14-58-24"></p>
+<h3 id="2-Arduino-ESP32开发环境的搭建">2. Arduino + ESP32开发环境的搭建</h3>
+<ul>
+<li>下载教程，按照教程搭建开发环境</li>
+<li>注意：一定要找到连接的开发板例程和端口，否则会出现错误，我的开发板端口如下所示</li>
+</ul>
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/端口.jpg" alt="端口" style="zoom:50%;">
+<ul>
+<li>在验证官方例程时，串口监视器出现乱码是没有选对波特率，修改后就可以正常输出了</li>
+</ul>
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/乱码.jpg" alt="乱码" style="zoom:50%;">
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/修改波特.jpg" alt="修改波特" style="zoom:50%;">
+<ul>
+<li>环境搭建成功</li>
+</ul>
+<h3 id="3-TFT白屏">3.TFT白屏</h3>
+<ul>
+<li>如果是之前在arduino管理库安装了，跟教程的TFT_eSPI库重叠了，删除系统的，重新把下载的库替换</li>
+<li>引脚问题，确认是否连接正确</li>
+</ul>
+<p><img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/Snipaste_2021-11-13_15-06-30.jpg" alt="Snipaste_2021-11-13_15-06-30" style="zoom:33%;"><img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/Snipaste_2021-11-13_15-06-11.jpg" alt="Snipaste_2021-11-13_15-06-11" style="zoom:33%;"></p>
+<h3 id="4-天气信息获取">4.天气信息获取</h3>
+<ul>
+<li>
+<p>心知天气 <strong><a href="http://seniverse.com" target="_blank" rel="noopener">seniverse.com</a></strong> 官方API</p>
+</li>
+<li>
+<p>注意需要使用<strong>私钥</strong>进行网络请求</p>
+</li>
+</ul>
+<h3 id="5-最后显示成果">5.最后显示成果</h3>
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/Snipaste_2021-11-13_18-11-34.jpg" alt="Snipaste_2021-11-13_18-11-34" style="zoom:50%;">
+<img src="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/Snipaste_2021-11-13_18-12-30.jpg" alt="Snipaste_2021-11-13_18-12-30" style="zoom:50%;">
+
+        </div>
+
+        
+        <section class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>baicaitang</span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>连接:</span>
+                <span><a href="https://baicaitang.github.io/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/">https://baicaitang.github.io/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/</a></span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>版权:</span>
+                <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+            </p>
+            
+            
+
+        </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                    <a href="/tag/%E7%89%A9%E8%81%94%E7%BD%91/"> <i class="iconfont icon-tags"></i> 物联网</a>
+                    
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/03/09/flutter%E5%AD%A6%E4%B9%A001/">flutter学习01</a>
+            
+        </section>
+    </article>
+
+    <script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '0KpgC9vMrdn50dpnTJtzqo7H-gzGzoHsz',
+            appKey: 'Whyf95T3XLV55f3OSRFYomQr',
+            notify: false,
+            verify: false,
+            avatar: 'mp',
+            placeholder: '(҂‾ ▵‾)︻デ═一聊天不...'
+        });
+    </script>
+</div>
+        </div>
+        <footer id="footer" class="footer">
+
+    <div class="copyright">
+        <span class="emojis earth" role="img" aria-label="earth rotating"></span>
+        <span> © 2020 baicaitang | 备案 · 粤ICP备2021021660号-1 </span>
+    </div>
+
+
+    <!-- <span id="busuanzi_container_site_pv">
+        <i class="iconfont icon-people"></i>
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+        <i class="iconfont icon-browse"></i>
+        本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+</footer>
+    </div>
+
+    
+
+
+    
+
+    <!-- <scrip type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></scrip> -->
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"dialog":null,"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+
+</html>

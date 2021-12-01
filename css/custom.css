@@ -1,0 +1,34 @@
+#vcomments {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 780px;
+}
+#vcomments #veditor {
+  min-height: 80px;
+}
+#vcomments .power {
+  display: none;
+}
+#vcomments .vat {
+  display: block;
+  width: 40px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #746d6d;
+  border: 1px solid #ededed;
+  border-radius: 0.3em;
+}
+.post-wrap {
+  overflow: hidden;
+}
+#vcomments .vwrap {
+  margin-top: 20px;
+  border: 1px solid #dcdcdc;
+}
+#vcomments .vcopy {
+  display: none;
+}
+.links .icon-gitee {
+  font-size: 1.8em;
+}
