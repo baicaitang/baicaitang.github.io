@@ -20,7 +20,7 @@
 
 
 
-<title>分类: 报错 | 沛</title>
+<title>cmd显示中文乱码问题 | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -177,53 +177,132 @@
     }
 </script>
         <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">cmd显示中文乱码问题</h1>
+            
+            <div class="post-meta">
+                
+
+                <span class="emoji monkey" role="img" aria-label="monkey"></span>
+                作者: <a itemprop="author" rel="author" href="/">baicaitang</a>
+                
+
+                
+                <span class="emoji clock" role="img" aria-label="clock"></span>
+                <span class="post-time">
+                    日期: <a
+                        href="#">2022-03-19&nbsp;&nbsp;16:57:27</a>
+                </span>
+                
+                
+                <span class="emoji inbox" role="img" aria-label="inbox tray"></span>
+                <span class="post-category">
+                    分类:
+                    
+                    <a href="/category/%E6%8A%A5%E9%94%99/">报错</a>
+                    
+                </span>
+                
+            </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>windows下在使用vscode运行终端时出现中文乱码</p>
+</blockquote>
+<p><img src="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/Snipaste_2022-03-19_16-43-16.jpg" alt="Snipaste_2022-03-19_16-43-16"></p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<p>1、在cmd中输入CHCP 65001</p>
+<p>2、代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system(<span class="string">"chcp 65001"</span>);</span><br></pre></td></tr></table></figure>
+<p>CHCP是一个计算机指令，能够显示或设置活动代码页编号</p>
+<p>代码页 描述</p>
+<p>65001  UTF-8代码页</p>
+<p>950	繁体中文</p>
+<p>936	简体中文默认的GBK</p>
+<p>437 MS-DOS美国英语</p>
+<p><img src="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/Snipaste_2022-03-19_16-43-28.jpg" alt="Snipaste_2022-03-19_16-43-28"></p>
+<blockquote>
+<p>以上方法只能解决一时需要，以下可以通过修改vscode配置文件解决</p>
+</blockquote>
+<ul>
+<li>文件-&gt;首选项-&gt;设置-&gt;终端-&gt;点击setting.json中编辑文件，里面添加以下内容，保存即可</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">"terminal.integrated.profiles.windows": &#123;</span><br><span class="line">        "Command Prompt": &#123;</span><br><span class="line">            "path": "C:\\Windows\\System32\\cmd.exe",</span><br><span class="line">            "args": [</span><br><span class="line">                "-NoExit",</span><br><span class="line">                "/K",</span><br><span class="line">                <span class="string">"chcp 65001"</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        "PowerShell": &#123;</span><br><span class="line">            "source": "PowerShell",</span><br><span class="line">            "args": [</span><br><span class="line">                "-NoExit",</span><br><span class="line">                "/C",</span><br><span class="line">                <span class="string">"chcp 65001"</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    "terminal.integrated.defaultProfile.windows": "PowerShell"</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+        <section class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>baicaitang</span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>连接:</span>
+                <span><a href="https://baicaitang.github.io/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">https://baicaitang.github.io/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</a></span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>版权:</span>
+                <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+            </p>
+            
             
 
-
-
-<div class="container">
-    <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;Categories&nbsp;·&nbsp;报错-</h2>
-    </div>
-    <div class="post-wrap archive">
-    
-    
+        </section>
         
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            <a class="prev" rel="prev" href="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/">知网下载文献nh格式转pdf格式</a>
+            
+            
+            <a class="next" rel="next" href="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/">npm安装全局依赖无法找到问题</a>
+            
+        </section>
+    </article>
 
-        
-            <h3>2022</h3>
-        
+    <script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">cmd显示中文乱码问题</a>
-            <span class="archive-item-date">2022-03-19</span>
-        </article>
-    
-        
-
-        
-            <h3>2021</h3>
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/">npm安装全局依赖无法找到问题</a>
-            <span class="archive-item-date">2021-12-03</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2021/02/09/%E8%B6%85%E5%87%BA%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F/">超出最大调用堆栈大小</a>
-            <span class="archive-item-date">2021-02-09</span>
-        </article>
-    
-    
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '0KpgC9vMrdn50dpnTJtzqo7H-gzGzoHsz',
+            appKey: 'Whyf95T3XLV55f3OSRFYomQr',
+            notify: false,
+            verify: false,
+            avatar: 'mp',
+            placeholder: '(҂‾ ▵‾)︻デ═一聊天不...'
+        });
+    </script>
 </div>
-</div>
-
-
         </div>
         <footer id="footer" class="footer">
 

@@ -20,7 +20,7 @@
 
 
 
-<title>npm安装全局依赖无法找到问题 | 沛</title>
+<title>知网下载文献nh格式转pdf格式 | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -180,11 +180,73 @@
             <div class="container">
     
     
+    <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">npm安装全局依赖无法找到问题</h1>
+            <h1 class="post-title">知网下载文献nh格式转pdf格式</h1>
             
             <div class="post-meta">
                 
@@ -197,7 +259,7 @@
                 <span class="emoji clock" role="img" aria-label="clock"></span>
                 <span class="post-time">
                     日期: <a
-                        href="#">2021-12-03&nbsp;&nbsp;23:16:30</a>
+                        href="#">2022-04-15&nbsp;&nbsp;19:02:34</a>
                 </span>
                 
                 
@@ -205,7 +267,7 @@
                 <span class="post-category">
                     分类:
                     
-                    <a href="/category/%E6%8A%A5%E9%94%99/">报错</a>
+                    <a href="/category/%E5%B7%A5%E5%85%B7/">工具</a>
                     
                 </span>
                 
@@ -215,38 +277,20 @@
 
         <div class="post-content">
             <blockquote>
-<p>问题：npm安装的全局依赖无法找到</p>
+<p>从知网下载的论文有的是.nh格式的，只能用知网专门的CAJViewer软件来查看,但是如果需要转换成pdf该怎么办呢</p>
 </blockquote>
-<img src="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/Snipaste_2021-12-03_23-01-59.jpg" alt="Snipaste_2021-12-03_23-01-59" style="zoom:50%;">
-<p>昨天卸载升级了node的版本后出现了问题，经过几个小时的排查原来是node的配置错了</p>
-<ul>
-<li>查看默认node安装的目录</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where node</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/Snipaste_2021-12-05_22-20-30.jpg" alt="Snipaste_2021-12-05_22-20-30"></p>
-<ul>
-<li>查看默认全局依赖安装目录和缓存目录</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">get</span> prefix</span><br><span class="line">npm <span class="keyword">get</span> cache</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/Snipaste_2021-12-05_22-35-27.jpg" alt="Snipaste_2021-12-05_22-35-27"></p>
-<blockquote>
-<p>如需修改全局依赖安装目录和缓存目录，执行以下命令</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//nodejs用户当前nodejs目录，npm_global和npm_cache目录需自己创建</span></span><br><span class="line">npm config <span class="keyword">set</span> prefix "E:/Developer/nodejs/npm_global"</span><br><span class="line">npm config <span class="keyword">set</span> cache "E:/Developer/nodejs/npm_cache"</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>配置系统环境</p>
-</blockquote>
-<ul>
-<li>添加NODE_PATH环境变量</li>
-</ul>
-<p><img src="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/Snipaste_2021-12-05_22-37-59.jpg" alt="Snipaste_2021-12-05_22-37-59"></p>
-<ul>
-<li>PATH添加node和全局依赖的路径</li>
-</ul>
-<p><img src="/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/Snipaste_2021-12-05_22-38-19.jpg" alt="Snipaste_2021-12-05_22-38-19"></p>
-<blockquote>
-<p>再次执行就没有报错了</p>
-</blockquote>
+<h3 id="解决方法网上有很多，下面是我的一个方法">解决方法网上有很多，下面是我的一个方法</h3>
+<h4 id="首先下载-pdfFactory">首先下载 <a href="https://www.pdffactorychina.cn/xiazai.html" target="_blank" rel="noopener">pdfFactory</a></h4>
+<p>PDFFactory 是一个无须Acrobat创建Adobepdf文件的打印机驱动程序，PDFFactory 提供的创建 PDF 文件的方法比其他方法更方便和高效。PDF制作工具，它可以把单页或两页的东西，直接打印为PDF文件！ PDFFactory 产品提供了比其他程序提供得更简单、更有效率和更少的花费的创建PDF 文件的解决方案</p>
+<p>同时也可以把它当成一个虚拟打印机</p>
+<h4 id="然后打开CAJViewer查看一篇文献，点击-文件-打印">然后打开CAJViewer查看一篇文献，点击-文件-打印</h4>
+<p>名称选择<strong>pdfFactory</strong>，点击确定，等待文献传送到pdfFactory中</p>
+<p><img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_00-17-55.jpg" alt="Snipaste_2022-04-15_00-17-55"></p>
+<p>再点击下面的图标，软件将会把你的文献转成pdf保存到指定位置</p>
+<img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_00-31-11.jpg" alt="Snipaste_2022-04-15_00-31-11" style="zoom:67%;">
+<img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_19-27-52.jpg" alt="Snipaste_2022-04-15_19-27-52" style="zoom:67%;">
+<h4 id="因为pdfFactory是一款收费软件，还有很多功能可以使用，通过注册码进行激活，永久使用">因为pdfFactory是一款收费软件，还有很多功能可以使用，通过注册码进行激活，永久使用</h4>
+<p>分享免费版，需要先下载安装包(<a href="https://pan.baidu.com/s/1kEhdQYeVFkdA9eLTnVqW5w" target="_blank" rel="noopener">网盘地址</a>)，然后输入序列码，账号自拟，激活即可</p>
 
         </div>
 
@@ -261,7 +305,7 @@
             
             <p class="copyright-item">
                 <span>连接:</span>
-                <span><a href="https://baicaitang.github.io/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/">https://baicaitang.github.io/2021/12/03/npm%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%97%AE%E9%A2%98/</a></span>
+                <span><a href="https://baicaitang.github.io/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/">https://baicaitang.github.io/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/</a></span>
             </p>
             
             
@@ -279,6 +323,10 @@
                 <span>标签:</span>
                 <span class="tag">
                     
+                    
+                    <a href="/tag/%E7%9F%A5%E7%BD%91/"> <i class="iconfont icon-tags"></i> 知网</a>
+                    
+                    
                 </span>
             </div>
             <div>
@@ -289,10 +337,8 @@
         </section>
         <section class="post-nav">
             
-            <a class="prev" rel="prev" href="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">cmd显示中文乱码问题</a>
             
-            
-            <a class="next" rel="next" href="/2021/11/13/esp32-TFT-%E5%88%86%E5%85%89%E6%A3%B1%E9%95%9C%E9%80%8F%E6%98%8E%E5%B0%8F%E7%94%B5%E8%A7%86/">esp32+TFT+分光棱镜透明小电视</a>
+            <a class="next" rel="next" href="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">cmd显示中文乱码问题</a>
             
         </section>
     </article>
