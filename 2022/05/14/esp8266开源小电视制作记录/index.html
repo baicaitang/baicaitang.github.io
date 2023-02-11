@@ -20,7 +20,7 @@
 
 
 
-<title>知网下载文献nh格式转pdf格式 | 沛</title>
+<title>esp8266开源小电视制作记录 | 沛</title>
 
 <style>
     .pace .pace-progress {
@@ -250,7 +250,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">知网下载文献nh格式转pdf格式</h1>
+            <h1 class="post-title">esp8266开源小电视制作记录</h1>
             
             <div class="post-meta">
                 
@@ -263,7 +263,7 @@
                 <span class="emoji clock" role="img" aria-label="clock"></span>
                 <span class="post-time">
                     日期: <a
-                        href="#">2022-04-15&nbsp;&nbsp;19:02:34</a>
+                        href="#">2022-05-14&nbsp;&nbsp;17:57:46</a>
                 </span>
                 
                 
@@ -271,7 +271,7 @@
                 <span class="post-category">
                     分类:
                     
-                    <a href="/category/%E5%B7%A5%E5%85%B7/">工具</a>
+                    <a href="/category/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a>
                     
                 </span>
                 
@@ -281,20 +281,130 @@
 
         <div class="post-content">
             <blockquote>
-<p>从知网下载的论文有的是.nh格式的，只能用知网专门的CAJViewer软件来查看,但是如果需要转换成pdf该怎么办呢</p>
+<p>去年开始就想制作一个小电视，现在终于开始动手啦，这次是要进行焊接的，顺便记录一下制作过程中遇到的坑和问题</p>
 </blockquote>
-<h3 id="解决方法网上有很多，下面是我的一个方法">解决方法网上有很多，下面是我的一个方法</h3>
-<h4 id="首先下载-pdfFactory">首先下载 <a href="https://www.pdffactorychina.cn/xiazai.html" target="_blank" rel="noopener">pdfFactory</a></h4>
-<p>PDFFactory 是一个无须Acrobat创建Adobepdf文件的打印机驱动程序，PDFFactory 提供的创建 PDF 文件的方法比其他方法更方便和高效。PDF制作工具，它可以把单页或两页的东西，直接打印为PDF文件！ PDFFactory 产品提供了比其他程序提供得更简单、更有效率和更少的花费的创建PDF 文件的解决方案</p>
-<p>同时也可以把它当成一个虚拟打印机</p>
-<h4 id="然后打开CAJViewer查看一篇文献，点击-文件-打印">然后打开CAJViewer查看一篇文献，点击-文件-打印</h4>
-<p>名称选择<strong>pdfFactory</strong>，点击确定，等待文献传送到pdfFactory中</p>
-<p><img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_00-17-55.jpg" alt="Snipaste_2022-04-15_00-17-55"></p>
-<p>再点击下面的图标，软件将会把你的文献转成pdf保存到指定位置</p>
-<img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_00-31-11.jpg" alt="Snipaste_2022-04-15_00-31-11" style="zoom:67%;">
-<img src="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/Snipaste_2022-04-15_19-27-52.jpg" alt="Snipaste_2022-04-15_19-27-52" style="zoom:67%;">
-<h4 id="因为pdfFactory是一款收费软件，还有很多功能可以使用，通过注册码进行激活，永久使用">因为pdfFactory是一款收费软件，还有很多功能可以使用，通过注册码进行激活，永久使用</h4>
-<p>分享免费版，需要先下载安装包(<a href="https://pan.baidu.com/s/1kEhdQYeVFkdA9eLTnVqW5w" target="_blank" rel="noopener">网盘地址</a>)，然后输入序列码，账号自拟，激活即可，供学习使用</p>
+<p>首先是购买元器件，网上有很多资料，下面我整理了我制作时购买的材料和用具：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>具体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小电视元件</td>
+<td>pcb板、屏幕1.33寸、3d外壳、螺丝、电阻（10k，6个）、电容（106，1个；104，2个）、按钮、esp8266、TYPE-C-6p、1117稳压芯片</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>焊接放大镜</td>
+<td>固定pcb板更好焊接</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>烙铁</td>
+<td>60W、焊嘴是刀头的、使用时海绵要湿水</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>拆焊台发热板</td>
+<td>300W-400W、大小看自己喜好</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>锡浆</td>
+<td>183º中温有铅锡膏、不常用可以买个小的</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>ttl串口</td>
+<td>CH340系列、记得需要串口驱动</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>洗板水</td>
+<td>清洗焊接过后pcb板上的松油和杂质</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>镊子</td>
+<td>尖头、不锈钢的</td>
+</tr>
+</tbody>
+</table>
+<h2 id="焊接">焊接</h2>
+<p>拿到所有元器件和工具后可以开始焊接</p>
+<h3 id="1、首先开始焊接type-c">1、首先开始焊接type-c</h3>
+<p>先在pcb版对应的位置涂上一层锡膏（不要太厚），放在加热台上加热，等温度升高锡开始融化，用镊子夹着type-c放在锡上面，等待一会，看到锡和type-c的针脚相连且不连锡即可。如果出现连锡，可以加一点松香在旁边（焊接完后元件上会显示一点黄黄的）。</p>
+<p>同理，把锡膏涂在其他位置上，然后把元器件放到相应位置进行加热焊接，完成如下图（屏幕在esp8266焊接后再进行焊接）</p>
+<p><strong>注</strong>：电容可能会因为温度过高焊坏，所以焊接的时候注意电容的焊接不要太长时间触碰烙铁。如果较小的元件位置不正确，可以用镊子进行位置摆正。</p>
+<p><img src="https://img-blog.csdnimg.cn/b5c1c430a01d4e44bbfff2e6a5387ce9.jpeg" alt="请添加图片描述"> <img src="https://img-blog.csdnimg.cn/7c37c32d85c943a0965889c9fdc154df.jpeg" alt="请添加图片描述"></p>
+<h3 id="2、再下来开始焊接esp8266">2、再下来开始焊接esp8266</h3>
+<p>先在一个引脚处点上一些锡，用烙铁加热把esp8266的一个引脚先焊上固定住，然后在进行其他引脚的焊接，同理和第一个引脚一样先上锡在用烙铁加热，完成后如下图 <img src="https://img-blog.csdnimg.cn/bdbaebd1a3cf4a498986506a62790eab.jpeg" alt="请添加图片描述"> <img src="https://img-blog.csdnimg.cn/bb2f09f2946949c5b29685ab7a4c2718.jpeg" alt="请添加图片描述"></p>
+<h3 id="3、焊接屏幕">3、焊接屏幕</h3>
+<p>先在焊接处涂上一层锡，用烙铁加热，锡膏融化，把屏幕排线对齐，按着排线用烙铁加热，烙铁往外刮，把多余的锡刮走，完成后如下图</p>
+<p><img src="https://img-blog.csdnimg.cn/edc0177f853c4162b2b0e58f5a764465.jpeg" alt="请添加图片描述"></p>
+<blockquote>
+<p>此时小电视，如果有连锡的情况可以用烙铁加热并轻轻地刮走，如果会测电路板的同学可以用<strong>万用表</strong>测试电容和其他电路是否短路。最后，用洗板水清洗板子。</p>
+</blockquote>
+<h2 id="烧录固件">烧录固件</h2>
+<h3 id="1、连接ttl串口">1、连接ttl串口</h3>
+<p>首先需要四根杜邦线，杜邦线的一头和pcb板上的四个小孔连接（或焊接上），一头连接ttl串口的针脚</p>
+<p><img src="https://img-blog.csdnimg.cn/e97a72c140564f0c938ee97621d489a4.jpeg" alt="请添加图片描述"></p>
+<p><strong>注</strong>：找到3v3、GND、RXD、TXD，与ttl串口的一一对应，不需要交叉连接（该pcb板设计作者特意这样设计），即：3V3对应3v，GND对应GND，<strong>TXD对应TX，RXD对应RX</strong></p>
+<h3 id="2、准备烧录工具">2、准备烧录工具</h3>
+<ul>
+<li>
+<p>首先安装串口驱动，可以在网上或购买的客服那里拿到串口驱动，双击安装即可 <img src="https://img-blog.csdnimg.cn/ed08a2886e8b4d9bb7861a8056028b0e.jpeg" alt="请添加图片描述"></p>
+</li>
+<li>
+<p>下载好固件（bin文件）</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/48fbe316a29e418089b9fcf1bd7f8ba3.jpeg" alt="请添加图片描述"></p>
+<ul>
+<li>
+<p>准备esp烧录工具flash_download_tool <img src="https://img-blog.csdnimg.cn/7c7bf692332147178e7a17c71cc40514.jpeg" alt="请添加图片描述"></p>
+</li>
+<li>
+<p>双击打开烧录工具，选择esp8266，点击ok，进入烧录界面，设置相应参数。如果没有显示端口，可以重新启动电脑在试试。在设备管理器查看端口（标有CH340的端口），若没有“端口”，可点击工具栏的查看—显示隐藏的设备即可</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/8a5acfb264ff459aaf2a0a2467c2e9dc.jpeg" alt="请添加图片描述"></p>
+<h3 id="3、开始烧录">3、开始烧录</h3>
+<p>必须连接好线后再插入ttl到电脑，<strong>在插入电脑前，必须同时按着那个黑色的小按钮，否则等会会烧录不成功</strong>。ttl插入电脑后，点击烧录工具的start，然后就会自定进行烧录，<strong>期间不可以松开小按钮</strong>，等待显示完成即可。</p>
+<h2 id="联网">联网</h2>
+<p>烧录完成后就可以联网啦，首先用数据线连接到type-c，打开自己的热点，连接名为AutoConnectAp的wifi，点击该wifi，进入设置，点击Configure Wifi ，在顶部找到自己的热点，下面的SSID为自己热点的名称，Password为热点的密码，CityCode为城市码，可以在下面文件中找到自己的城市修改，LCD BackLight(1-100)为屏幕的亮度，Weather Update Time(Min)为天气更新间隔时间，最后点击保存即可</p>
+<blockquote>
+<p>如果需要修改可以先断开热点，等待一段时间再重新进行上面步骤即可</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/0f89f040824048be9bcabe2cdd1cf0b4.jpeg" alt="请添加图片描述"></p>
+<ul>
+<li>我的小电视资料：<a href="https://pan.baidu.com/s/1V43BuyOZ22YwNTrGhPJjCQ?pwd=bry2" target="_blank" rel="noopener">https://pan.baidu.com/s/1V43BuyOZ22YwNTrGhPJjCQ?pwd=bry2</a></li>
+</ul>
+<p>下一个制作稚晖君的holocubic</p>
 
         </div>
 
@@ -309,7 +419,7 @@
             
             <p class="copyright-item">
                 <span>连接:</span>
-                <span><a href="https://baicaitang.github.io/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/">https://baicaitang.github.io/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/</a></span>
+                <span><a href="https://baicaitang.github.io/2022/05/14/esp8266%E5%BC%80%E6%BA%90%E5%B0%8F%E7%94%B5%E8%A7%86%E5%88%B6%E4%BD%9C%E8%AE%B0%E5%BD%95/">https://baicaitang.github.io/2022/05/14/esp8266%E5%BC%80%E6%BA%90%E5%B0%8F%E7%94%B5%E8%A7%86%E5%88%B6%E4%BD%9C%E8%AE%B0%E5%BD%95/</a></span>
             </p>
             
             
@@ -327,10 +437,6 @@
                 <span>标签:</span>
                 <span class="tag">
                     
-                    
-                    <a href="/tag/%E7%9F%A5%E7%BD%91/"> <i class="iconfont icon-tags"></i> 知网</a>
-                    
-                    
                 </span>
             </div>
             <div>
@@ -341,10 +447,10 @@
         </section>
         <section class="post-nav">
             
-            <a class="prev" rel="prev" href="/2022/05/14/esp8266%E5%BC%80%E6%BA%90%E5%B0%8F%E7%94%B5%E8%A7%86%E5%88%B6%E4%BD%9C%E8%AE%B0%E5%BD%95/">esp8266开源小电视制作记录</a>
+            <a class="prev" rel="prev" href="/2023/02/11/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%BB%93%E7%82%B9/">搭建自己的科学上网结点</a>
             
             
-            <a class="next" rel="next" href="/2022/03/19/cmd%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">cmd显示中文乱码问题</a>
+            <a class="next" rel="next" href="/2022/04/15/%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AEnh%E6%A0%BC%E5%BC%8F%E8%BD%ACpdf%E6%A0%BC%E5%BC%8F/">知网下载文献nh格式转pdf格式</a>
             
         </section>
     </article>
