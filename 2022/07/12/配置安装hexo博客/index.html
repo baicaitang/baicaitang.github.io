@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- progress -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<!--end -->
+
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="author" content="baicaitang">
+
+
+
+<meta name="description" content="沛">
+
+
+
+<title>配置安装hexo博客 | 沛</title>
+
+<style>
+    .pace .pace-progress {
+        background: #68cbf0;
+        /*进度条颜色*/
+        height: 3px;
+    }
+
+    .pace .pace-progress-inner {
+        box-shadow: 0 0 10px #2d96bd, 0 0 5px #2d96bd;
+        /*阴影颜色*/
+    }
+
+    .pace .pace-activity {
+        border-top-color: #2d96bd;
+        /*上边框颜色*/
+        border-left-color: #2d96bd;
+        /*左边框颜色*/
+    }
+</style>
+
+
+
+<link rel="icon" href="/mm.ico">
+
+
+
+
+<!-- stylesheets list from _config.yml -->
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<!-- scripts list from _config.yml -->
+
+<script src="/js/script.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- google AdSense  -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8355798199851946"
+    crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div class="wrapper">
+        <a href="https://github.com/baicaitang" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80"
+        viewBox="0 0 250 250" style="fill:#666; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+        aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg></a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+
+    @keyframes octocat-wave {
+
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">baicaitang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/notes">Notes</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">baicaitang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/notes">Notes</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+    <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">配置安装hexo博客</h1>
+            
+            <div class="post-meta">
+                
+
+                <span class="emoji monkey" role="img" aria-label="monkey"></span>
+                作者: <a itemprop="author" rel="author" href="/">baicaitang</a>
+                
+
+                
+                <span class="emoji clock" role="img" aria-label="clock"></span>
+                <span class="post-time">
+                    日期: <a
+                        href="#">2022-07-12&nbsp;&nbsp;9:05:39</a>
+                </span>
+                
+                
+                <span class="emoji inbox" role="img" aria-label="inbox tray"></span>
+                <span class="post-category">
+                    分类:
+                    
+                    <a href="/category/%E6%95%99%E7%A8%8B/">教程</a>
+                    
+                </span>
+                
+            </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1>配置安装hexo博客</h1>
+<h1>1、安装node.js</h1>
+<p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a></p>
+<p><a href="https://blog.csdn.net/qq_40712862/article/details/120231621" target="_blank" rel="noopener">https://blog.csdn.net/qq_40712862/article/details/120231621</a></p>
+<p><code>node -v</code>判断是否安装成功</p>
+<p>##下载慢解决方法</p>
+<ul>
+<li>
+<p>更换淘宝镜像下载源：<code>npm config set registry https://registry.npm.taobao.org</code></p>
+</li>
+<li>
+<p>或国内的npm镜像命令：<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+</li>
+</ul>
+<h2 id="安装指定版本">安装指定版本</h2>
+<p><a href="https://blog.csdn.net/weixin_44198965/article/details/124140283" target="_blank" rel="noopener">https://blog.csdn.net/weixin_44198965/article/details/124140283</a></p>
+<p><a href="https://nodejs.org/download/release/v15.7.0/" target="_blank" rel="noopener">https://nodejs.org/download/release/v15.7.0/</a></p>
+<h1>2、注册github</h1>
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<h1>3、安装hexo</h1>
+<ul>
+<li>新建文件夹，打开cmd</li>
+<li><code>npm install hexo-cli -g</code></li>
+<li><code>hexo -v</code>判断是否安装成功</li>
+</ul>
+<h2 id="卸载">卸载</h2>
+<ul>
+<li>
+<p>安装成功后可在<code>C:\Users\Administrator\AppData\Roaming</code>文件夹下看到npm文件夹</p>
+</li>
+<li>
+<p>卸载命令：卸载成功后npm文件夹会消失<code>npm uninstall hexo-cli -g</code></p>
+</li>
+</ul>
+<h2 id="安装指定版本-v2">安装指定版本</h2>
+<ul>
+<li>查看版本<code>hexo --version</code></li>
+<li>安装 Hexo 指定版本<code>npm i hexo@4.2.1 --save</code></li>
+</ul>
+<h1>4、生成本地静态网页</h1>
+<ul>
+<li><code>hexo init 名称</code>初始化</li>
+<li><code>cd 名称</code>进入文件夹，<code>npm install</code>安装依赖</li>
+<li><code>hexo g</code>生成静态网页</li>
+<li><code>hexo s</code>打开本地预览</li>
+<li><code>hexo clean</code>，清除缓存文件 db.json 和已生成的静态文件 public</li>
+</ul>
+<h1>5、上传github</h1>
+<ul>
+<li>
+<p>创建仓库<code>create repository</code></p>
+</li>
+<li>
+<p>填写仓库名称需要和gihub账号一致，勾选<code>Add a README file</code>，点击创建</p>
+</li>
+<li>
+<p>进入仓库点击<code>settings-&gt;Pages</code>，找到<code>Github Page</code></p>
+</li>
+<li>
+<p><code>Branch</code>分支改成main或master</p>
+</li>
+</ul>
+<h1>6、安装git</h1>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
+<h2 id="配置ssh密钥">配置ssh密钥</h2>
+<ul>
+<li>
+<p>打开<code>Git Bash Here</code>窗口，执行<code>ssh-keygen</code></p>
+</li>
+<li>
+<p>打开此电脑–&gt;C盘–&gt;用户–&gt;Administrator–&gt;.ssh(文件夹)–&gt;用记事本打开 id_rsa.pub 文件，全选复制</p>
+</li>
+<li>
+<p>打开我们的github，进入设置–&gt;SSH公钥–&gt;在公钥区粘贴我们所copy的公钥，点击确定输入github登陆密码进行验证即可</p>
+</li>
+</ul>
+<h2 id="或者">或者</h2>
+<ul>
+<li>打开<code>Git Bash Here</code>窗口<code>cat ~/.ssh/id_rsa.pub</code>输出SSH Key，然后复制</li>
+</ul>
+<h2 id="克隆github项目到本地">克隆github项目到本地</h2>
+<ul>
+<li><code>git init</code>初始化本地仓库，后会在本地文件夹下生成一个 <strong>.git</strong> 文件夹</li>
+<li><code>git clone 仓库地址</code></li>
+</ul>
+<h2 id="git的推送操作">git的推送操作</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> git status 查看当前状态。</span><br><span class="line"><span class="number">2.</span> git add 文件名** 表示将某个文件添加至暂存区。</span><br><span class="line"><span class="number">3.</span> git add . 表示将所有(进行修改的)文件添加至暂存区。</span><br><span class="line"><span class="number">4.</span> git commit -m “xxx” xxx表示自己对本次提交所进行的备注或者标注。</span><br><span class="line"><span class="number">5.</span> git remote add origin SSH链接 表示建立本地库与想要操作的远程仓库的联系。</span><br><span class="line"><span class="number">6.</span> git push -u origin master 表示实现由本地库向远程仓库的推送。</span><br></pre></td></tr></table></figure>
+<h2 id="git的拉取操作">git的拉取操作</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master 表示将远程仓库的内容文件同步更新拉取到本地库。</span><br></pre></td></tr></table></figure>
+<h2 id="问题">问题</h2>
+<p>如果执行<code>git push origin master</code>报错<code>The project you were looking for could not be found</code>报错，则通过(管理员运行)<code>git config --system --unset credential.helper </code>清除账户信息并且在windows凭证里添加账户信息</p>
+<h1>7、连接github，git config配置:</h1>
+<p><code>git config --global user.name  &quot;username&quot;  </code><br>
+<code>git config --global user.email  &quot;email&quot;</code></p>
+<ul>
+<li>
+<p>将username和email换成github（或者其它类似远程仓库）的用户名和邮箱</p>
+</li>
+<li>
+<p>–global  表示全局的，即当前用户都有效，该配置会出现在 ~/.gitconfig 文件中，~表示当前用户的目录，比如：C:\Users\username\.gitconfig</p>
+</li>
+<li>
+<p><code>ssh-keygen -t rsa -C &quot;你GitHub账号的邮箱&quot;</code>来生成SSH Key，中途按3次回车</p>
+</li>
+</ul>
+<h1>8、hexo 关联github</h1>
+<ul>
+<li>打开hexo文件夹里面的**_config.yml**文件，这是hexo的配置文件修改：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: ssh:<span class="comment">//git@github.com/github账号名称/github账号名称.github.io.git</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>然后在cmd上输入<code>npm install hexo-deployer-git --save</code>安装GitHub推送插件</p>
+</li>
+<li>
+<p>安装好了以后再输入<code>hexo g</code>生成静态网页，再输入<code>hexo d</code>上传到GitHub就可以了</p>
+</li>
+</ul>
+<h1>9、hexo 主题</h1>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p>安装主题<code>npm install hexo-theme-next</code></p>
+<h1>10、hexo 配置</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration Hexo配置文件</span><br><span class="line">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 网站信息</span><br><span class="line">#标题</span><br><span class="line">title: 学志の博客</span><br><span class="line">#副标题</span><br><span class="line">subtitle: 记录学习的技能和遇到的问题</span><br><span class="line">#网站描述</span><br><span class="line">description: 做自己爱做的事，爱自己在做的事！</span><br><span class="line">#作者昵称</span><br><span class="line">author: 张学志</span><br><span class="line">#网站语言，默认英语，设置简体汉语</span><br><span class="line">language: zh-Hans</span><br><span class="line"></span><br><span class="line">#时区，默认电脑时区</span><br><span class="line">#timezone: </span><br><span class="line">timezone: Asia/Shanghai</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 网址设置</span><br><span class="line">#如果网站是放在子目录中，将url设置成'http://yoursite.com/child'，将root设置成'/child/'</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">#网址</span><br><span class="line">url: http:<span class="comment">//zhangxuezhi.com</span></span><br><span class="line">#网站根目录。如果网站是放在子目录中，将root设置成'子目录名'</span><br><span class="line">root: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">#文章链接地址格式 。即文章存放的目录。</span></span><br><span class="line"><span class="regexp">permalink: :year/</span>:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 目录设置</span><br><span class="line">#资源文件夹，放在里面的文件会上传到github中</span><br><span class="line">source_dir: source</span><br><span class="line">#公共文件夹，存放生成的静态文件</span><br><span class="line">public_dir: public</span><br><span class="line">#标签文件夹，默认是tags。实际存放在source/tags中。</span><br><span class="line">tag_dir: tags</span><br><span class="line">rss_dir: rss</span><br><span class="line">#档案文件夹，默认是archives。</span><br><span class="line">archive_dir: archives</span><br><span class="line">#分类文件夹，默认是categories。实际存放在source/categories中。</span><br><span class="line">category_dir: categories</span><br><span class="line">#代码文件夹，默认是downloads/code</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">#国际化文件夹，默认跟language相同</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">#不需要渲染的文件夹或文件夹,放在[]中</span><br><span class="line"># 这两个文件是百度和google的站长验证文件，不能渲染，否则会改变内容，不能验证过</span><br><span class="line">skip_render: [baidu_verify_R9MZjdMkXT.html, google0f8fac7da2b48ef8.html, README.md, 模板.md]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 写作选项</span><br><span class="line"># 新建博文（帖子）的默认名称</span><br><span class="line"># File name of new posts</span><br><span class="line">new_post_name: :title.md </span><br><span class="line">#默认布局模板是post，而不是draft和page</span><br><span class="line">default_layout: post</span><br><span class="line">#是否将标题转换成标题形式（首字母大写）</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">#在新标签页面中打开网页</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: <span class="number">0</span></span><br><span class="line">#是否渲染草稿</span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">#启动 Asset 文件夹</span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">#把链接改为与根目录的相对位址</span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">#显示未来的文章</span><br><span class="line">future: <span class="literal">true</span></span><br><span class="line">#代码块的设置</span><br><span class="line">highlight:</span><br><span class="line">  enable: true          #  使用代码高亮</span><br><span class="line">  line_number: true # 显示行号</span><br><span class="line">  auto_detect: true  # 自动检测语言</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"># 分类和标签</span><br><span class="line"># 默认分类</span><br><span class="line">default_category: uncategorized</span><br><span class="line">#分类别名</span><br><span class="line">category_map:</span><br><span class="line">#标签别名</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 日期和时间格式</span><br><span class="line">#Hexo 使用 Moment.js 来解析和显示时间。</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 分页配置</span><br><span class="line"># ---------------下面选项需要对应插件的支持---------------</span><br><span class="line"># npm install hexo-generator-index --save</span><br><span class="line"># npm install hexo-generator-archive --save</span><br><span class="line"># npm install hexo-generator-category --save</span><br><span class="line"># npm install hexo-generator-tag --save</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">#每页显示的文章量 </span><br><span class="line">#per_page: 20</span><br><span class="line">#首页的分页设置</span><br><span class="line">index_generator:</span><br><span class="line">  per_page: <span class="number">5</span></span><br><span class="line">#归档页的分页设置</span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: <span class="number">30</span></span><br><span class="line">  yearly: <span class="literal">true</span></span><br><span class="line">  monthly: <span class="literal">true</span></span><br><span class="line">#标签页的分页设置</span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: <span class="number">20</span></span><br><span class="line"></span><br><span class="line">#分页路径，在public中可以看到</span><br><span class="line">#pagination_dir: page</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Extensions 拓展插件配置</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">plugins: </span><br><span class="line">baidusitemap: </span><br><span class="line">  path: baidusitemap.xml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 配置RSS</span><br><span class="line">feed: </span><br><span class="line">  #feed 类型 (atom/rss2)</span><br><span class="line">  type: atom   </span><br><span class="line">  #rss 路径</span><br><span class="line">  path: atom.xml  </span><br><span class="line">  #在 rss 中最多生成的文章数(0显示所有)</span><br><span class="line">  limit: <span class="number">0</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"># 自定义站点内容搜索</span><br><span class="line"># 需要先安装插件：</span><br><span class="line"># npm install hexo-generator-search --save</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  # 如只想索引文章，可设置为post</span><br><span class="line">  field: all </span><br><span class="line">  </span><br><span class="line"># 主题配置</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">#theme: false #禁用主题</span><br><span class="line">#theme: landscape</span><br><span class="line">theme: next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 部署配置</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  #repo: https://github.com/xuezhisd/xuezhisd.github.io.git</span><br><span class="line">  repo: </span><br><span class="line">    # 部署到github</span><br><span class="line">    github: git@github.com:xuezhisd/xuezhisd.github.io.git,master</span><br><span class="line">    # 部署到coding.net。取消注释，可同时部署</span><br><span class="line">    #coding: git@git.coding.net:xuezhisd/blog.git,coding-pages</span><br><span class="line">  #type: baidu_url_submitter</span><br></pre></td></tr></table></figure>
+<h1>11、 新增菜单栏选项</h1>
+<ul>
+<li>添加新页面：hexo new page “xx”</li>
+<li>在主题配置文件的menu中加上该页面</li>
+<li>在zh-CN.yml文件中加上中文意思</li>
+</ul>
+<h1>12、图片处理</h1>
+<ul>
+<li>配置文件中的post_asset_folder改成true</li>
+<li><code>npm install hexo-asset-image --save</code></li>
+<li>放到该文件夹下，按照md格式输入(文件名称/图片名.jpg)</li>
+</ul>
+<h1>13、搜索</h1>
+<ul>
+<li><code>npm install hexo-generator-searchdb --save</code></li>
+<li>站点配置文件的扩展下添加</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>主题配置文件下，local_search改成true即可</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1>14、新建文章</h1>
+<ul>
+<li>
+<p><code>hexo new 文章名称</code></p>
+</li>
+<li>
+<p>存储在source/_posts下</p>
+</li>
+</ul>
+<h1>hexo 插件</h1>
+<p>参考博文：</p>
+<p>1、<a href="https://www.jianshu.com/p/09875c4a629c" target="_blank" rel="noopener">https://www.jianshu.com/p/09875c4a629c</a></p>
+<p>2、插件汇总：<a href="https://blog.csdn.net/qq_43701912/article/details/107310923" target="_blank" rel="noopener">https://blog.csdn.net/qq_43701912/article/details/107310923</a></p>
+
+        </div>
+
+        
+        <section class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>baicaitang</span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>连接:</span>
+                <span><a href="https://baicaitang.github.io/2022/07/12/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85hexo%E5%8D%9A%E5%AE%A2/">https://baicaitang.github.io/2022/07/12/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85hexo%E5%8D%9A%E5%AE%A2/</a></span>
+            </p>
+            
+            
+            <p class="copyright-item">
+                <span>版权:</span>
+                <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+            </p>
+            
+            
+
+        </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            <a class="prev" rel="prev" href="/2023/02/11/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%BB%93%E7%82%B9/">搭建自己的科学上网结点</a>
+            
+            
+            <a class="next" rel="next" href="/2022/05/14/esp8266%E5%BC%80%E6%BA%90%E5%B0%8F%E7%94%B5%E8%A7%86%E5%88%B6%E4%BD%9C%E8%AE%B0%E5%BD%95/">esp8266开源小电视制作记录</a>
+            
+        </section>
+    </article>
+
+    <script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '0KpgC9vMrdn50dpnTJtzqo7H-gzGzoHsz',
+            appKey: 'Whyf95T3XLV55f3OSRFYomQr',
+            notify: false,
+            verify: false,
+            avatar: 'mp',
+            placeholder: '(҂‾ ▵‾)︻デ═一聊天不...'
+        });
+    </script>
+</div>
+        </div>
+        <footer id="footer" class="footer">
+
+    <div class="copyright">
+        <span class="emojis earth" role="img" aria-label="earth rotating"></span>
+        <span> © 2020 baicaitang | 备案 · 粤ICP备2021021660号-1 </span>
+    </div>
+
+
+    <!-- <span id="busuanzi_container_site_pv">
+        <i class="iconfont icon-people"></i>
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+        <i class="iconfont icon-browse"></i>
+        本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+</footer>
+    </div>
+
+    
+
+
+    
+
+    <!-- <scrip type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></scrip> -->
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"dialog":null,"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+
+</html>
